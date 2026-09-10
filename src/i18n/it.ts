@@ -12,6 +12,8 @@ export const it: Translations = {
     skills: 'Competenze',
     projects: 'Progetti',
     contact: 'Contatti',
+    openMenu: 'Apri il menu',
+    close: 'Chiudi',
   },
   hero: {
     role: 'Full Stack Developer',

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -28,22 +29,34 @@ export function ProjectOverlay({ project, onClose }: ProjectOverlayProps): React
   const titleId = `project-overlay-${project.slug}-title`
 
   return (
-    <div
+    <motion.div
       className="fixed inset-0 z-[100] overflow-y-auto bg-[var(--color-bg)]/90 px-4 py-10 backdrop-blur-sm sm:px-8"
       onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
     >
-      <div
+      <motion.div
         ref={containerRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         className="mx-auto max-w-3xl rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 sm:p-10"
         onClick={(event) => event.stopPropagation()}
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 24 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="flex items-start justify-between gap-4">
-          <h2 id={titleId} className="font-[var(--font-display)] text-[length:var(--fs-h2)]">
+          <motion.h2
+            layoutId={`project-title-${project.slug}`}
+            id={titleId}
+            className="font-[var(--font-display)] text-[length:var(--fs-h2)]"
+          >
             {project.title[locale]}
-          </h2>
+          </motion.h2>
           <button
             type="button"
             onClick={onClose}
@@ -112,7 +125,7 @@ export function ProjectOverlay({ project, onClose }: ProjectOverlayProps): React
         >
           {t('projects.repository')} ↗
         </a>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }

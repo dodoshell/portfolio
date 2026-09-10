@@ -9,6 +9,8 @@ export interface Translations {
     skills: string
     projects: string
     contact: string
+    openMenu: string
+    close: string
   }
   hero: {
     role: string

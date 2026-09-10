@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { personalProjectSkills, skillGroups, type SkillGroupId } from '@/content/skills'
+import { Reveal } from '@/components/ui/Reveal'
 
 export function Skills(): React.JSX.Element {
   const { t } = useTranslation()
@@ -19,8 +20,8 @@ export function Skills(): React.JSX.Element {
         {t('skills.heading')}
       </h2>
       <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {skillGroups.map((group) => (
-          <div key={group.id}>
+        {skillGroups.map((group, index) => (
+          <Reveal key={group.id} delay={index * 0.06}>
             <h3 className="text-sm uppercase tracking-wide text-[var(--color-text-muted)]">
               {groupLabels[group.id]}
             </h3>
@@ -31,12 +32,14 @@ export function Skills(): React.JSX.Element {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         ))}
       </div>
-      <p className="mt-10 text-sm text-[var(--color-text-muted)]">
-        {t('skills.personalProjects')} {personalProjectSkills.join(', ')}
-      </p>
+      <Reveal>
+        <p className="mt-10 text-sm text-[var(--color-text-muted)]">
+          {t('skills.personalProjects')} {personalProjectSkills.join(', ')}
+        </p>
+      </Reveal>
     </section>
   )
 }

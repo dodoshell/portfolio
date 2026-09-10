@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { ProjectCard } from '@/components/project/ProjectCard'
+import { Reveal } from '@/components/ui/Reveal'
 import { projects } from '@/content/projects'
 
 export function Projects(): React.JSX.Element {
@@ -12,8 +13,10 @@ export function Projects(): React.JSX.Element {
         {t('projects.heading')}
       </h2>
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+        {projects.map((project, index) => (
+          <Reveal key={project.slug} delay={index * 0.1}>
+            <ProjectCard project={project} />
+          </Reveal>
         ))}
       </div>
     </section>

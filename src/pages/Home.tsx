@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import { Nav } from '@/components/layout/Nav'
@@ -30,7 +31,11 @@ export default function Home(): React.JSX.Element {
         <Projects />
         <Contact />
       </main>
-      {activeProject && <ProjectOverlay project={activeProject} onClose={() => navigate('/')} />}
+      <AnimatePresence>
+        {activeProject && (
+          <ProjectOverlay key={activeProject.slug} project={activeProject} onClose={() => navigate('/')} />
+        )}
+      </AnimatePresence>
     </>
   )
 }
