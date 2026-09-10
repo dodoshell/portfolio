@@ -1,36 +1,36 @@
-import { useTranslation } from 'react-i18next'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import { Nav } from '@/components/layout/Nav'
+import { ProjectOverlay } from '@/components/project/ProjectOverlay'
+import { About } from '@/components/sections/About'
+import { Contact } from '@/components/sections/Contact'
+import { Hero } from '@/components/sections/Hero'
+import { Projects } from '@/components/sections/Projects'
+import { Skills } from '@/components/sections/Skills'
+import { Timeline } from '@/components/sections/Timeline'
+import { projects } from '@/content/projects'
 
-const PLACEHOLDER_SECTIONS = ['about', 'timeline', 'skills', 'projects', 'contact'] as const
+const PROJECT_ROUTE = /^\/projects\/([^/]+)\/?$/
 
 export default function Home(): React.JSX.Element {
-  const { t } = useTranslation()
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const slug = location.pathname.match(PROJECT_ROUTE)?.[1]
+  const activeProject = projects.find((project) => project.slug === slug)
 
   return (
     <>
       <Nav />
       <main>
-        <section id="top" className="flex min-h-dvh scroll-mt-20 flex-col justify-center px-6">
-          <h1 className="font-[var(--font-display)] text-[length:var(--fs-hero)] leading-[1.05]">
-            Odoardo Ramanucci
-          </h1>
-          <p className="mt-4 max-w-xl text-[var(--color-text-muted)]">Full Stack Developer</p>
-        </section>
-
-        {PLACEHOLDER_SECTIONS.map((section) => (
-          <section
-            key={section}
-            id={section}
-            aria-labelledby={`${section}-heading`}
-            className="scroll-mt-20 px-6 py-24"
-          >
-            <h2 id={`${section}-heading`} className="text-[length:var(--fs-h2)]">
-              {t(`nav.${section}`)}
-            </h2>
-          </section>
-        ))}
+        <Hero />
+        <About />
+        <Timeline />
+        <Skills />
+        <Projects />
+        <Contact />
       </main>
+      {activeProject && <ProjectOverlay project={activeProject} onClose={() => navigate('/')} />}
     </>
   )
 }

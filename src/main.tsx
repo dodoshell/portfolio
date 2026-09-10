@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import './i18n'
 import './styles/global.css'
@@ -16,10 +16,7 @@ createRoot(rootElement).render(
   <StrictMode>
     <HelmetProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects/:slug" element={<Home />} />
-        </Routes>
+        <Home />
       </BrowserRouter>
     </HelmetProvider>
   </StrictMode>,
