@@ -38,6 +38,33 @@
   }
 }
 
+.hero-gradient {
+  background:
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-accent) 38%, transparent), transparent 60%),
+    radial-gradient(
+      circle at 85% 75%,
+      color-mix(in srgb, var(--color-accent-secondary) 32%, transparent),
+      transparent 55%
+    ),
+    var(--color-bg);
+  background-size: 200% 200%;
+  animation: hero-gradient-shift 20s ease-in-out infinite;
+}
+
+@keyframes hero-gradient-shift {
+  0%,
+  100% {
+    background-position:
+      0% 0%,
+      100% 100%;
+  }
+  50% {
+    background-position:
+      100% 100%,
+      0% 0%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -1,11 +1,35 @@
 import { motion } from 'framer-motion'
+import { lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
+
+import { useInView } from '@/hooks/useInView'
+import { useWebGLSupport } from '@/hooks/useWebGLSupport'
+
+const HeroScene = lazy(() => import('@/components/three/HeroScene'))
+
+const OBSERVER_OPTIONS: IntersectionObserverInit = { threshold: 0 }
 
 export function Hero(): React.JSX.Element {
   const { t } = useTranslation()
+  const webglSupported = useWebGLSupport()
+  const [sectionRef, inView] = useInView<HTMLElement>(OBSERVER_OPTIONS)
 
   return (
-    <section id="top" className="relative flex min-h-dvh scroll-mt-20 flex-col justify-center px-6">
+    <section
+      id="top"
+      ref={sectionRef}
+      className="relative flex min-h-dvh scroll-mt-20 flex-col justify-center overflow-hidden px-6"
+    >
+      <div className="hero-gradient absolute inset-0 -z-10" />
+
+      {webglSupported && (
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          <Suspense fallback={null}>
+            <HeroScene active={inView} />
+          </Suspense>
+        </div>
+      )}
+
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
