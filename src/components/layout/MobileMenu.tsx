@@ -45,7 +45,7 @@ export function MobileMenu({ sections, activeSection, onNavigate, onClose }: Mob
               href={`#${section}`}
               onClick={(event) => onNavigate(event, section)}
               aria-current={activeSection === section ? 'true' : undefined}
-              className="font-[var(--font-display)]"
+              className="[font-family:var(--font-display)] font-semibold"
             >
               {t(`nav.${section}`)}
             </a>

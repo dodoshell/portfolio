@@ -41,7 +41,7 @@ export function Nav(): React.JSX.Element {
         aria-label="Main"
         className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 text-[var(--color-text)]"
       >
-        <a href="#top" className="font-[var(--font-display)] text-lg font-semibold" aria-label="Odoardo Ramanucci">
+        <a href="#top" className="[font-family:var(--font-display)] text-lg font-semibold" aria-label="Odoardo Ramanucci">
           OR
         </a>
 

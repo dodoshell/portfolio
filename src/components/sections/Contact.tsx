@@ -19,7 +19,7 @@ export function Contact(): React.JSX.Element {
 
   return (
     <section id="contact" aria-labelledby="contact-heading" className="scroll-mt-20 px-6 py-24">
-      <h2 id="contact-heading" className="font-[var(--font-display)] text-[length:var(--fs-h2)]">
+      <h2 id="contact-heading" className="[font-family:var(--font-display)] text-[length:var(--fs-h2)]">
         {t('contact.heading')}
       </h2>
       <Reveal>
@@ -28,7 +28,7 @@ export function Contact(): React.JSX.Element {
         <button
           type="button"
           onClick={() => void handleCopy()}
-          className="mt-8 block text-left font-[var(--font-display)] text-[length:var(--fs-h2)] transition-colors hover:text-[var(--color-accent)]"
+          className="mt-8 block text-left [font-family:var(--font-display)] text-[length:var(--fs-h2)] font-semibold transition-colors hover:text-[var(--color-accent)]"
           aria-label={t('contact.copy')}
         >
           {EMAIL}

@@ -16,7 +16,7 @@ export function Skills(): React.JSX.Element {
 
   return (
     <section id="skills" aria-labelledby="skills-heading" className="scroll-mt-20 px-6 py-24">
-      <h2 id="skills-heading" className="font-[var(--font-display)] text-[length:var(--fs-h2)]">
+      <h2 id="skills-heading" className="[font-family:var(--font-display)] text-[length:var(--fs-h2)]">
         {t('skills.heading')}
       </h2>
       <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

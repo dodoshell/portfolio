@@ -53,7 +53,7 @@ export function ProjectOverlay({ project, onClose }: ProjectOverlayProps): React
           <motion.h2
             layoutId={`project-title-${project.slug}`}
             id={titleId}
-            className="font-[var(--font-display)] text-[length:var(--fs-h2)]"
+            className="[font-family:var(--font-display)] text-[length:var(--fs-h2)]"
           >
             {project.title[locale]}
           </motion.h2>

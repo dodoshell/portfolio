@@ -43,7 +43,7 @@ export function ProjectCard({ project }: ProjectCardProps): React.JSX.Element {
     >
       <motion.h3
         layoutId={`project-title-${project.slug}`}
-        className="font-[var(--font-display)] text-[length:var(--fs-h3)]"
+        className="[font-family:var(--font-display)] text-[length:var(--fs-h3)]"
       >
         {project.title[locale]}
       </motion.h3>

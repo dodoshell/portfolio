@@ -35,7 +35,7 @@ export function Hero(): React.JSX.Element {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h1 className="font-[var(--font-display)] text-[length:var(--fs-hero)] leading-[1.05]">
+        <h1 className="[font-family:var(--font-display)] text-[length:var(--fs-hero)] leading-[1.05]">
           Odoardo Ramanucci
         </h1>
         <p className="mt-4 text-lg">{t('hero.role')}</p>

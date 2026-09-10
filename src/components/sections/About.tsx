@@ -7,7 +7,7 @@ export function About(): React.JSX.Element {
 
   return (
     <section id="about" aria-labelledby="about-heading" className="scroll-mt-20 px-6 py-24">
-      <h2 id="about-heading" className="font-[var(--font-display)] text-[length:var(--fs-h2)]">
+      <h2 id="about-heading" className="[font-family:var(--font-display)] text-[length:var(--fs-h2)]">
         {t('about.heading')}
       </h2>
       <Reveal>

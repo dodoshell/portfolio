@@ -69,7 +69,7 @@ export function Timeline(): React.JSX.Element {
       aria-labelledby="timeline-heading"
       className="scroll-mt-20 px-6 py-24"
     >
-      <h2 id="timeline-heading" className="font-[var(--font-display)] text-[length:var(--fs-h2)]">
+      <h2 id="timeline-heading" className="[font-family:var(--font-display)] text-[length:var(--fs-h2)]">
         {t('timeline.heading')}
       </h2>
       <div className="relative mt-10 pl-6">
@@ -83,7 +83,7 @@ export function Timeline(): React.JSX.Element {
           {timeline.map((entry) => (
             <li key={entry.id} data-timeline-item>
               <p className="text-sm text-[var(--color-text-muted)]">{entry.period}</p>
-              <p className="mt-1 font-[var(--font-display)] text-lg">{entry.title[locale]}</p>
+              <p className="mt-1 [font-family:var(--font-display)] text-lg font-semibold">{entry.title[locale]}</p>
               <p className="mt-1 text-[var(--color-text-muted)]">{entry.description[locale]}</p>
             </li>
           ))}
