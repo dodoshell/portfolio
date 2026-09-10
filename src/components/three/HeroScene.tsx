@@ -20,7 +20,7 @@ function createPositions(count: number, spread: number): Float32Array {
   return positions
 }
 
-const PARTICLE_COUNT = 900
+const PARTICLE_COUNT = 450
 
 function ParticleLayer({ color, size, spread, speed }: ParticleLayerProps): React.JSX.Element {
   const ref = useRef<PointsImpl>(null)
@@ -38,7 +38,7 @@ function ParticleLayer({ color, size, spread, speed }: ParticleLayerProps): Reac
 
   return (
     <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
-      <PointMaterial color={color} size={size} sizeAttenuation transparent opacity={0.75} depthWrite={false} />
+      <PointMaterial color={color} size={size} sizeAttenuation transparent opacity={0.5} depthWrite={false} />
     </Points>
   )
 }
@@ -50,8 +50,8 @@ interface HeroSceneProps {
 export default function HeroScene({ active }: HeroSceneProps): React.JSX.Element {
   return (
     <Canvas dpr={[1, 2]} frameloop={active ? 'always' : 'never'} camera={{ position: [0, 0, 5], fov: 50 }}>
-      <ParticleLayer color="#7c5cff" size={0.028} spread={9} speed={0.025} />
-      <ParticleLayer color="#22d3ee" size={0.02} spread={7} speed={-0.018} />
+      <ParticleLayer color="#7c5cff" size={0.022} spread={9} speed={0.02} />
+      <ParticleLayer color="#22d3ee" size={0.016} spread={7} speed={-0.014} />
     </Canvas>
   )
 }

@@ -14,6 +14,7 @@ export const en: Translations = {
     contact: 'Contact',
     openMenu: 'Open menu',
     close: 'Close',
+    backToTop: 'Back to top',
   },
   hero: {
     role: 'Full Stack Developer',

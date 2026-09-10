@@ -11,6 +11,7 @@ export interface Translations {
     contact: string
     openMenu: string
     close: string
+    backToTop: string
   }
   hero: {
     role: string

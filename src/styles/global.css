@@ -40,10 +40,10 @@
 
 .hero-gradient {
   background:
-    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-accent) 38%, transparent), transparent 60%),
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 60%),
     radial-gradient(
       circle at 85% 75%,
-      color-mix(in srgb, var(--color-accent-secondary) 32%, transparent),
+      color-mix(in srgb, var(--color-accent-secondary) 18%, transparent),
       transparent 55%
     ),
     var(--color-bg);

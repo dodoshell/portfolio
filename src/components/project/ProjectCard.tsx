@@ -10,7 +10,7 @@ interface ProjectCardProps {
   project: Project
 }
 
-const TILT_RANGE = 8
+const TILT_RANGE = 5
 
 export function ProjectCard({ project }: ProjectCardProps): React.JSX.Element {
   const { t, i18n } = useTranslation()
