@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
+@theme {
+  --color-abyss: #060914;
+  --color-deep: #0e1430;
+  --color-nacre: #ece8f4;
+  --color-mist: #9097b0;
+  --color-iris: #7fe3d6;
+  --color-blush: #f4a8c8;
+  --color-lilac: #a898ff;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  background: var(--color-abyss);
+  color: var(--color-nacre);
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-lilac);
+  color: var(--color-abyss);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-iris);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* The display face carries the personality: tight, heavy, slightly condensed. */
+.display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 85;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+
+/* The one orchestrated moment: the name surfaces from below a mask on load. */
+.hero-name {
+  animation: hero-rise 1.1s cubic-bezier(0.2, 0.7, 0.1, 1) 0.15s both;
+  background: linear-gradient(100deg, var(--color-nacre) 30%, var(--color-lilac) 55%, var(--color-iris) 70%, var(--color-nacre) 90%);
+  background-size: 220% 100%;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes hero-rise {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(0.25em);
+    background-position: 100% 0;
+  }
+  to {
+    clip-path: inset(-10% 0 -10% 0);
+    transform: none;
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-name {
+    animation: none;
+  }
+}
+
+.shell-fade-in {
+  animation: shell-fade-in 1.4s ease-out both;
+}
+
+@keyframes shell-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* Shared-element morph between the work list and a case study. */
+::view-transition-group(*) {
+  animation-duration: 450ms;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Shiki output: keep the theme's colours, drop its background. */
+.code pre {
+  background: transparent !important;
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
 }
