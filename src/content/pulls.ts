@@ -15,6 +15,15 @@ export type PullNote = {
 
 export const pullNotes: PullNote[] = [
   {
+    repo: 'The-PR-Agent/pr-agent',
+    number: 4425,
+    fallback: { title: 'fix(litellm): make the handler the only retry layer', state: 'merged', stars: 13645 },
+    summary: {
+      en: 'Rate limits and server errors were retried by two layers at once, so attempts multiplied and waits were unpredictable. Retries now live in one place, honour Retry-After up to 30 s and are measured per error type.',
+      it: 'Limiti di richieste ed errori del server venivano ritentati da due livelli insieme, così i tentativi si moltiplicavano e le attese erano imprevedibili. Ora i tentativi stanno in un solo punto, rispettano Retry-After fino a 30 s e sono misurati per ogni tipo di errore.',
+    },
+  },
+  {
     repo: 'doobidoo/mcp-memory-service',
     number: 1648,
     fallback: { title: 'feat(codex): report memory load and save status through systemMessage', state: 'merged', stars: 2046 },
@@ -33,12 +42,39 @@ export const pullNotes: PullNote[] = [
     },
   },
   {
+    repo: 'btclib-org/btclib',
+    number: 2821,
+    fallback: { title: 'assert_p2tr’s refusal names witness version 1, and test_p2tr covers four bad shapes', state: 'merged', stars: 113 },
+    summary: {
+      en: 'The Taproot check refused bad scripts with a message naming the wrong witness version. The message is fixed, and four malformed scripts, including one Bitcoin Core just started rejecting, are now tested.',
+      it: 'Il controllo Taproot rifiutava gli script errati con un messaggio che indicava la versione witness sbagliata. Il messaggio è corretto, e ora sono testati quattro script malformati, compreso uno che Bitcoin Core ha appena iniziato a rifiutare.',
+    },
+  },
+  {
     repo: 'doobidoo/mcp-memory-service',
     number: 1676,
-    fallback: { title: 'fix(web): save the dashboard’s Quality tab settings', state: 'open', stars: 2046 },
+    fallback: { title: 'fix(web): save the dashboard’s Quality tab settings', state: 'merged', stars: 2046 },
     summary: {
       en: 'The dashboard’s Quality tab looked editable but saved nothing. It now has an admin-only endpoint, writes the settings and shows the real values.',
       it: 'La scheda Quality della dashboard sembrava modificabile ma non salvava niente. Ora ha un endpoint riservato agli admin, scrive le impostazioni e mostra i valori reali.',
+    },
+  },
+  {
+    repo: 'ludo-technologies/pyscn',
+    number: 865,
+    fallback: { title: 'fix(lcom): don’t count inherited calls as variables', state: 'merged', stars: 1096 },
+    summary: {
+      en: 'The LCOM4 cohesion metric gave different answers for self.m() and super().m(). Inherited calls are now treated the same way in both spellings.',
+      it: 'La metrica di coesione LCOM4 dava risultati diversi per self.m() e super().m(). Ora le chiamate ereditate sono trattate allo stesso modo in entrambe le forme.',
+    },
+  },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 7886,
+    fallback: { title: 'test(zotero): cover the inline collection picker behaviour', state: 'merged', stars: 9409 },
+    summary: {
+      en: 'Behaviour tests for the Zotero collection picker, run against the real page runtime: restoring saved keys, autosave and the “entire library” option.',
+      it: 'Test di comportamento per il selettore di collezioni Zotero, sul vero runtime della pagina: ripristino delle chiavi salvate, salvataggio automatico e l’opzione “intera libreria”.',
     },
   },
   {
@@ -52,20 +88,11 @@ export const pullNotes: PullNote[] = [
   },
   {
     repo: 'ludo-technologies/pyscn',
-    number: 865,
-    fallback: { title: 'fix(lcom): don’t count inherited calls as variables', state: 'open', stars: 1096 },
+    number: 866,
+    fallback: { title: 'fix(srp): count sibling modules as one concern', state: 'open', stars: 1097 },
     summary: {
-      en: 'The LCOM4 cohesion metric gave different answers for self.m() and super().m(). Inherited calls are now treated the same way in both spellings.',
-      it: 'La metrica di coesione LCOM4 dava risultati diversi per self.m() e super().m(). Ora le chiamate ereditate sono trattate allo stesso modo in entrambe le forme.',
-    },
-  },
-  {
-    repo: 'LearningCircuit/local-deep-research',
-    number: 7886,
-    fallback: { title: 'test(zotero): cover the inline collection picker behaviour', state: 'open', stars: 9409 },
-    summary: {
-      en: 'Behaviour tests for the Zotero collection picker, run against the real page runtime: restoring saved keys, autosave and the “entire library” option.',
-      it: 'Test di comportamento per il selettore di collezioni Zotero, sul vero runtime della pagina: ripristino delle chiavi salvate, salvataggio automatico e l’opzione “intera libreria”.',
+      en: 'The single-responsibility rule flagged a facade importing four sibling modules as mixing four concerns, while the same imports raised the package’s cohesion. Siblings now count as one concern.',
+      it: 'La regola di singola responsabilità segnalava una facciata che importa quattro moduli fratelli come se mescolasse quattro responsabilità, mentre gli stessi import alzavano la coesione del pacchetto. Ora i fratelli contano come una sola.',
     },
   },
   {
