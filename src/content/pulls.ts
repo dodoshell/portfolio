@@ -89,7 +89,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'ludo-technologies/pyscn',
     number: 866,
-    fallback: { title: 'fix(srp): count sibling modules as one concern', state: 'open', stars: 1097 },
+    fallback: { title: 'fix(srp): count sibling modules as one concern', state: 'merged', stars: 1097 },
     summary: {
       en: 'The single-responsibility rule flagged a facade importing four sibling modules as mixing four concerns, while the same imports raised the package’s cohesion. Siblings now count as one concern.',
       it: 'La regola di singola responsabilità segnalava una facciata che importa quattro moduli fratelli come se mescolasse quattro responsabilità, mentre gli stessi import alzavano la coesione del pacchetto. Ora i fratelli contano come una sola.',
@@ -98,10 +98,19 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'RailtownAI/railtracks',
     number: 1734,
-    fallback: { title: 'fix(llm): accept local .avif attachments like base64 AVIF', state: 'open', stars: 234 },
+    fallback: { title: 'fix(llm): accept local .avif attachments like base64 AVIF', state: 'merged', stars: 234 },
     summary: {
       en: 'A local .avif file was rejected while the same image as base64 was accepted. Local files, URLs and base64 now agree on the type.',
       it: 'Un file .avif locale veniva rifiutato, mentre la stessa immagine in base64 era accettata. Ora file locali, URL e base64 riconoscono lo stesso tipo.',
+    },
+  },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8124,
+    fallback: { title: 'fix(pdf): render a table that directly follows text as a table', state: 'merged', stars: 9451 },
+    summary: {
+      en: 'A table written right under a line of text showed up in the PDF export as raw pipe text, while the report view drew it as a table. The PDF now renders it as a table too, without touching pipes inside code blocks.',
+      it: 'Una tabella scritta subito sotto una riga di testo finiva nel PDF esportato come testo con le barre verticali, mentre la vista del report la mostrava come tabella. Ora anche il PDF la rende come tabella, senza toccare le barre dentro i blocchi di codice.',
     },
   },
 ]
