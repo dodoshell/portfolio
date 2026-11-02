@@ -131,4 +131,40 @@ export const pullNotes: PullNote[] = [
       it: 'Riscrivendo una voce in un vector store Chroma restavano i metadati che la nuova versione non aveva più, e i valori vecchi ricomparivano in lettura. Ora il record viene sostituito per intero.',
     },
   },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8212,
+    fallback: { title: 'fix(settings): save only edited keys when hiding the raw JSON editor', state: 'open', stars: 9451 },
+    summary: {
+      en: 'Hiding the settings JSON editor resent its whole text, which could be older than a field change still being saved, and silently undid it. It now saves only when the editor was edited, and only the keys that changed.',
+      it: 'Chiudendo l’editor JSON delle impostazioni veniva reinviato tutto il suo testo, che poteva essere più vecchio di una modifica a un campo ancora in salvataggio, annullandola senza avvisi. Ora salva solo se l’editor è stato modificato, e solo le chiavi cambiate.',
+    },
+  },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8213,
+    fallback: { title: 'fix(theme): put the previous theme back when a header save fails', state: 'open', stars: 9451 },
+    summary: {
+      en: 'When saving a theme picked from the header failed, the page kept it until the next load quietly switched back. It now puts the previous theme back right away, unless a newer one was chosen in the meantime.',
+      it: 'Se il salvataggio di un tema scelto dall’header falliva, la pagina lo teneva finché il caricamento successivo non tornava indietro senza spiegazioni. Ora rimette subito il tema precedente, a meno che nel frattempo non ne sia stato scelto un altro.',
+    },
+  },
+  {
+    repo: 'btclib-org/btclib',
+    number: 2908,
+    fallback: { title: 'obfuscate’s negative-offset refusal quotes the offset through _message_text', state: 'open', stars: 118 },
+    summary: {
+      en: 'A huge negative offset made obfuscate raise Python’s own digit-limit ValueError instead of btclib’s error. The message now quotes the offset safely, with a regression test.',
+      it: 'Un offset negativo enorme faceva sollevare a obfuscate il ValueError di Python sul limite di cifre invece dell’errore di btclib. Ora il messaggio cita l’offset in modo sicuro, con un test di regressione.',
+    },
+  },
+  {
+    repo: 'btclib-org/btclib',
+    number: 2909,
+    fallback: { title: 'imports_test keeps btclib free of bip32_descriptors imports', state: 'open', stars: 118 },
+    summary: {
+      en: 'The import test guarded btclib against importing btclib_wallet but not bip32_descriptors, which also depends on it. It now catches that cycle too.',
+      it: 'Il test sugli import impediva a btclib di importare btclib_wallet ma non bip32_descriptors, che dipende anch’esso da btclib. Ora intercetta anche quel ciclo.',
+    },
+  },
 ]
