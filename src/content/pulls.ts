@@ -122,4 +122,13 @@ export const pullNotes: PullNote[] = [
       it: 'Per le funzioni molto annidate, il suggerimento “identifica il blocco più annidato alla riga N” indicava sempre la riga del def. Ora indica il blocco davvero più annidato.',
     },
   },
+  {
+    repo: 'RailtownAI/railtracks',
+    number: 1765,
+    fallback: { title: 'fix(retrieval): replace Chroma records on upsert so stale metadata is dropped', state: 'open', stars: 235 },
+    summary: {
+      en: 'Rewriting an entry in a Chroma vector store kept chunk metadata the new version no longer had, so old values came back on read. The record is now replaced as a whole.',
+      it: 'Riscrivendo una voce in un vector store Chroma restavano i metadati che la nuova versione non aveva più, e i valori vecchi ricomparivano in lettura. Ora il record viene sostituito per intero.',
+    },
+  },
 ]
