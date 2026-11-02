@@ -113,4 +113,13 @@ export const pullNotes: PullNote[] = [
       it: 'Una tabella scritta subito sotto una riga di testo finiva nel PDF esportato come testo con le barre verticali, mentre la vista del report la mostrava come tabella. Ora anche il PDF la rende come tabella, senza toccare le barre dentro i blocchi di codice.',
     },
   },
+  {
+    repo: 'ludo-technologies/pyscn',
+    number: 874,
+    fallback: { title: 'fix(complexity): point the nesting suggestion at the deepest block', state: 'open', stars: 1100 },
+    summary: {
+      en: 'For deeply nested functions, the hint “identify the deepest nested block at line N” always pointed at the def line. It now points at the block that is actually nested deepest.',
+      it: 'Per le funzioni molto annidate, il suggerimento “identifica il blocco più annidato alla riga N” indicava sempre la riga del def. Ora indica il blocco davvero più annidato.',
+    },
+  },
 ]
