@@ -185,4 +185,22 @@ export const pullNotes: PullNote[] = [
       it: 'Un segnaposto chiamato __proto__ veniva compilato in una chiave che impostava il prototipo dell’oggetto, perdendo il valore. Ora la macro lo emette come chiave calcolata, che resta un valore normale.',
     },
   },
+  {
+    repo: 'spring-projects/spring-session',
+    number: 4150,
+    fallback: { title: 'RedisIndexedSessionRepository should remove original session id from expirations on changeSessionId', state: 'open', stars: 1942 },
+    summary: {
+      en: 'After a session id change, the old id stayed in the Redis expirations set, because it was looked up after the session key had already been renamed. It is now removed before the rename.',
+      it: 'Dopo un cambio di id della sessione, il vecchio id restava nell’insieme delle scadenze su Redis, perché veniva cercato dopo aver già rinominato la chiave. Ora viene rimosso prima della rinomina.',
+    },
+  },
+  {
+    repo: 'pmd/pmd',
+    number: 7280,
+    fallback: { title: '[java] Fix #7279: InternalApiUsage false positive in records and enums', state: 'open', stars: 5524 },
+    summary: {
+      en: 'The InternalApiUsage rule flagged @VisibleForTesting members used inside their own record or enum, because it only looked for an enclosing class. It now recognises any enclosing type.',
+      it: 'La regola InternalApiUsage segnalava i membri @VisibleForTesting usati dentro il loro stesso record o enum, perché cercava solo una classe contenitore. Ora riconosce qualsiasi tipo contenitore.',
+    },
+  },
 ]
