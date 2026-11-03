@@ -168,24 +168,6 @@ export const pullNotes: PullNote[] = [
     },
   },
   {
-    repo: 'lingui/js-lingui',
-    number: 2766,
-    fallback: { title: 'fix(core): look up plural and selectordinal choices as own properties', state: 'open', stars: 5934 },
-    summary: {
-      en: 'A plural value such as "constructor" matched a member inherited from Object.prototype, and formatting threw a TypeError. Choices are now looked up as own properties, the way select already does.',
-      it: 'Un valore di plurale come "constructor" corrispondeva a un membro ereditato da Object.prototype, e la formattazione lanciava un TypeError. Ora le scelte vengono cercate solo tra le proprietà proprie, come già fa select.',
-    },
-  },
-  {
-    repo: 'lingui/js-lingui',
-    number: 2767,
-    fallback: { title: 'fix(babel-plugin-lingui-macro): emit a placeholder named __proto__ as an own key', state: 'open', stars: 5934 },
-    summary: {
-      en: 'A placeholder named __proto__ was compiled into an object literal key that set the prototype, so its value was lost. The macro now emits it as a computed key, which keeps it as a normal value.',
-      it: 'Un segnaposto chiamato __proto__ veniva compilato in una chiave che impostava il prototipo dell’oggetto, perdendo il valore. Ora la macro lo emette come chiave calcolata, che resta un valore normale.',
-    },
-  },
-  {
     repo: 'spring-projects/spring-session',
     number: 4150,
     fallback: { title: 'RedisIndexedSessionRepository should remove original session id from expirations on changeSessionId', state: 'open', stars: 1942 },
