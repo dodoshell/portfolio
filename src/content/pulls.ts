@@ -188,10 +188,37 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'LearningCircuit/local-deep-research',
     number: 8238,
-    fallback: { title: 'fix(auth): send the same 503 body from the middleware and require_auth', state: 'open', stars: 9487 },
+    fallback: { title: 'fix(auth): send the same 503 body from the middleware and require_auth', state: 'merged', stars: 9487 },
     summary: {
       en: 'When the session could not be checked, the request was refused with a 503 whose body depended on which check refused it, so a client retrying had to look for two different fields. Both checks now send the same body.',
       it: 'Quando non si riusciva a verificare la sessione, la richiesta veniva rifiutata con un 503 il cui contenuto dipendeva da quale controllo la rifiutava, e un client che riprovava doveva cercare due campi diversi. Ora i due controlli mandano la stessa risposta.',
+    },
+  },
+  {
+    repo: 'datamodel-code-generator/datamodel-code-generator',
+    number: 6127,
+    fallback: { title: 'Read minContains and maxContains written as integral floats as the integers they are', state: 'open', stars: 4048 },
+    summary: {
+      en: 'A schema that wrote minContains or maxContains as 2.0 instead of 2 lost those limits, so the generated model accepted arrays it should reject. Whole-number floats are now read as the integers they are.',
+      it: 'Uno schema che scriveva minContains o maxContains come 2.0 invece di 2 perdeva quei limiti, e il modello generato accettava array che avrebbe dovuto rifiutare. Ora i float interi vengono letti come numeri interi.',
+    },
+  },
+  {
+    repo: 'mojohaus/flatten-maven-plugin',
+    number: 562,
+    fallback: { title: 'Resolve parent and imported POMs from repositories declared in the POM chain', state: 'open', stars: 224 },
+    summary: {
+      en: 'The plugin ignored the repositories that a parent POM or an imported BOM declares, so it failed on projects that Maven itself builds fine. Those repositories are now used to resolve the rest of the chain.',
+      it: 'Il plugin ignorava i repository dichiarati da un POM padre o da un BOM importato, e falliva su progetti che Maven compila senza problemi. Ora quei repository vengono usati per risolvere il resto della catena.',
+    },
+  },
+  {
+    repo: 'haydenbleasel/ultracite',
+    number: 864,
+    fallback: { title: 'Keep core first and anti-slop last when init updates oxlint extends', state: 'open', stars: 3367 },
+    summary: {
+      en: 'Re-running init after the imports had been sorted put the core preset after anti-slop in the oxlint config, so core turned back on rules anti-slop disables. init now keeps core first and anti-slop last.',
+      it: 'Rilanciare init dopo l’ordinamento degli import metteva il preset core dopo anti-slop nella config di oxlint, e core riattivava le regole che anti-slop disattiva. Ora init lascia core per primo e anti-slop per ultimo.',
     },
   },
 ]
