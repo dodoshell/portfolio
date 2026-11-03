@@ -185,4 +185,13 @@ export const pullNotes: PullNote[] = [
       it: 'La regola InternalApiUsage segnalava i membri @VisibleForTesting usati dentro il loro stesso record o enum, perché cercava solo una classe contenitore. Ora riconosce qualsiasi tipo contenitore.',
     },
   },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8238,
+    fallback: { title: 'fix(auth): send the same 503 body from the middleware and require_auth', state: 'open', stars: 9487 },
+    summary: {
+      en: 'When the session could not be checked, the request was refused with a 503 whose body depended on which check refused it, so a client retrying had to look for two different fields. Both checks now send the same body.',
+      it: 'Quando non si riusciva a verificare la sessione, la richiesta veniva rifiutata con un 503 il cui contenuto dipendeva da quale controllo la rifiutava, e un client che riprovava doveva cercare due campi diversi. Ora i due controlli mandano la stessa risposta.',
+    },
+  },
 ]
