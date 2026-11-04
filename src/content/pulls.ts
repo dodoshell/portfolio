@@ -266,4 +266,13 @@ export const pullNotes: PullNote[] = [
       it: 'Aggiungere dati a un blob nell’emulatore dava una risposta senza le intestazioni Last-Modified e x-ms-request-server-encrypted che Azure Storage invia. Ora ci sono, con lo stesso orario salvato nel blob.',
     },
   },
+  {
+    repo: 'datamodel-code-generator/datamodel-code-generator',
+    number: 6236,
+    fallback: { title: 'Resolve a $ref to a $dynamicAnchor, and to an $anchor under contains, not, if, dependentSchemas or a nested $defs', state: 'open', stars: 4050 },
+    summary: {
+      en: 'A schema that referred to a subschema by an anchor name stopped generation with an error when the name came from $dynamicAnchor, or when the anchor sat under contains, not, if, dependentSchemas or a nested $defs. Those names are now found and the reference resolves.',
+      it: 'Uno schema che si riferiva a un sottoschema con il nome di un anchor fermava la generazione con un errore quando il nome veniva da $dynamicAnchor, o quando l’anchor stava sotto contains, not, if, dependentSchemas o un $defs annidato. Ora quei nomi vengono trovati e il riferimento si risolve.',
+    },
+  },
 ]
