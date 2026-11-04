@@ -221,4 +221,49 @@ export const pullNotes: PullNote[] = [
       it: 'Rilanciare init dopo l’ordinamento degli import metteva il preset core dopo anti-slop nella config di oxlint, e core riattivava le regole che anti-slop disattiva. Ora init lascia core per primo e anti-slop per ultimo.',
     },
   },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8274,
+    fallback: { title: 'fix(security): run the added log patterns on bytes and keys in extra', state: 'open', stars: 9501 },
+    summary: {
+      en: 'A credential passed to a log call as bytes or as a dictionary key in extra was checked against fewer patterns than the message itself, so some shapes reached the logs unredacted. Bytes and keys now go through the same redaction as the message.',
+      it: 'Una credenziale passata a una chiamata di log come bytes o come chiave di un dizionario in extra veniva controllata con meno pattern del messaggio stesso, e alcune forme finivano nei log in chiaro. Ora bytes e chiavi passano per la stessa redazione del messaggio.',
+    },
+  },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8275,
+    fallback: { title: 'fix(security): run the added log patterns on stripped exception text', state: 'open', stars: 9501 },
+    summary: {
+      en: 'An API key in an exception message stayed visible in the logged traceback when a control or invisible character followed it. The exception text is now checked both with and without those characters.',
+      it: 'Una chiave API nel messaggio di un’eccezione restava visibile nel traceback registrato quando era seguita da un carattere di controllo o invisibile. Ora il testo dell’eccezione viene controllato sia con sia senza quei caratteri.',
+    },
+  },
+  {
+    repo: 'btclib-org/btclib',
+    number: 2915,
+    fallback: { title: 'conf.py’s BLOB names main, the default branch', state: 'open', stars: 121 },
+    summary: {
+      en: 'The source links in the documentation pointed at the master branch, which the repository no longer uses. They now point at main.',
+      it: 'I link al sorgente nella documentazione puntavano al branch master, che il repository non usa più. Ora puntano a main.',
+    },
+  },
+  {
+    repo: 'floci-io/floci-az',
+    number: 630,
+    fallback: { title: 'fix(containerapps): report a managed environment’s customDomainVerificationId', state: 'open', stars: 846 },
+    summary: {
+      en: 'The emulator’s Container Apps environments had no customDomainVerificationId, a field Azure clients read after creating one. Each environment now reports a stable value for it.',
+      it: 'Gli ambienti Container Apps dell’emulatore non avevano customDomainVerificationId, un campo che i client Azure leggono dopo averne creato uno. Ora ogni ambiente riporta un valore stabile.',
+    },
+  },
+  {
+    repo: 'floci-io/floci-az',
+    number: 631,
+    fallback: { title: 'fix(blob): answer Append Block with Last-Modified and x-ms-request-server-encrypted', state: 'open', stars: 846 },
+    summary: {
+      en: 'Appending to a blob in the emulator returned a response without the Last-Modified and x-ms-request-server-encrypted headers that Azure Storage sends. They are now included, with the same time the blob stores.',
+      it: 'Aggiungere dati a un blob nell’emulatore dava una risposta senza le intestazioni Last-Modified e x-ms-request-server-encrypted che Azure Storage invia. Ora ci sono, con lo stesso orario salvato nel blob.',
+    },
+  },
 ]
