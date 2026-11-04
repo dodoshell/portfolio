@@ -242,7 +242,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'btclib-org/btclib',
     number: 2915,
-    fallback: { title: 'conf.py’s BLOB names main, the default branch', state: 'open', stars: 121 },
+    fallback: { title: 'conf.py’s BLOB names main, the default branch', state: 'merged', stars: 121 },
     summary: {
       en: 'The source links in the documentation pointed at the master branch, which the repository no longer uses. They now point at main.',
       it: 'I link al sorgente nella documentazione puntavano al branch master, che il repository non usa più. Ora puntano a main.',
