@@ -161,7 +161,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'btclib-org/btclib',
     number: 2909,
-    fallback: { title: 'imports_test keeps btclib free of bip32_descriptors imports', state: 'open', stars: 118 },
+    fallback: { title: 'imports_test keeps btclib free of bip32_descriptors imports', state: 'merged', stars: 118 },
     summary: {
       en: 'The import test guarded btclib against importing btclib_wallet but not bip32_descriptors, which also depends on it. It now catches that cycle too.',
       it: 'Il test sugli import impediva a btclib di importare btclib_wallet ma non bip32_descriptors, che dipende anch’esso da btclib. Ora intercetta anche quel ciclo.',
