@@ -22,6 +22,12 @@ function currentSection(): Section {
   return { name, side: match?.dataset.shellSide, isFirst: window.scrollY < window.innerHeight * 0.5 }
 }
 
+// Two small pearls circle the big one on tilted orbits, passing in front and behind.
+const satellites = [
+  { size: 0.085, radius: 1.5, tilt: 0.42, speed: 0.22, phase: 0.6 },
+  { size: 0.05, radius: 1.8, tilt: -0.3, speed: 0.15, phase: 3.4 },
+]
+
 const colorCache = new Map<string, Color>()
 const toColor = (hex: string) => {
   let color = colorCache.get(hex)
@@ -32,6 +38,8 @@ const toColor = (hex: string) => {
 function Shell({ animate }: { animate: boolean }) {
   const mesh = useRef<Mesh>(null)
   const material = useRef<ShaderMaterial>(null)
+  const orbiting = useRef<(Mesh | null)[]>([])
+  const lastScroll = useRef(0)
   const pointer = useRef({ x: 0.4, y: 0.2 })
   const frame = useRef(0)
   const target = useRef({ palette: getPalette(undefined), side: undefined as string | undefined, isFirst: true })
@@ -44,6 +52,7 @@ function Shell({ animate }: { animate: boolean }) {
       uTurbulence: { value: palette.turbulence },
       uPointer: { value: [0.4, 0.2] },
       uFade: { value: 1 },
+      uDetail: { value: 1 },
       uColorA: { value: new Color(palette.colors[0]) },
       uColorB: { value: new Color(palette.colors[1]) },
       uColorC: { value: new Color(palette.colors[2]) },
@@ -93,35 +102,70 @@ function Shell({ animate }: { animate: boolean }) {
     mesh.current.position.x = MathUtils.lerp(mesh.current.position.x, restX, ease)
     mesh.current.position.y = MathUtils.lerp(mesh.current.position.y, narrow && isFirst ? viewport.height * 0.26 : 0, ease)
     mesh.current.scale.setScalar(narrow ? Math.min(1.05, viewport.width * 0.36) : 1.05)
+    satellites.forEach((satellite, index) => {
+      const pearl = orbiting.current[index]
+      if (!pearl) return
+      const angle = u.uTime.value * satellite.speed + satellite.phase
+      const scale = mesh.current!.scale.x
+      pearl.visible = !narrow && target.current.isFirst
+      pearl.position.set(
+        mesh.current!.position.x + Math.cos(angle) * satellite.radius * scale,
+        mesh.current!.position.y + Math.sin(angle) * satellite.radius * satellite.tilt * scale,
+        Math.sin(angle) * satellite.radius * scale * 0.7,
+      )
+    })
+
     if (animate) {
-      mesh.current.rotation.y += delta * 0.08
+      // Scrolling turns the pearl a little, so the page feels connected to it.
+      const scrolled = window.scrollY - lastScroll.current
+      lastScroll.current = window.scrollY
+      mesh.current.rotation.y += delta * 0.08 + scrolled * 0.0006
       mesh.current.rotation.x = MathUtils.lerp(mesh.current.rotation.x, pointer.current.y * 0.25, ease)
     }
   })
 
   return (
-    <mesh ref={mesh} position={[1.6, 0, 0]} scale={1.05}>
-      <icosahedronGeometry args={[1, 64]} />
-      <shaderMaterial
-        ref={material}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        uniforms={uniforms}
-        transparent
-      />
-      <mesh scale={1.6} renderOrder={-1}>
-        <icosahedronGeometry args={[1, 8]} />
+    <>
+      {satellites.map((satellite, index) => (
+        <mesh
+          key={satellite.phase}
+          ref={(pearl) => {
+            orbiting.current[index] = pearl
+          }}
+          scale={satellite.size}
+        >
+          <icosahedronGeometry args={[1, 16]} />
+          <shaderMaterial
+            vertexShader={vertexShader}
+            fragmentShader={fragmentShader}
+            uniforms={{ ...uniforms, uDetail: { value: 0.3 } }}
+            transparent
+          />
+        </mesh>
+      ))}
+      <mesh ref={mesh} position={[1.6, 0, 0]} scale={1.05}>
+        <icosahedronGeometry args={[1, 64]} />
         <shaderMaterial
-          vertexShader={haloVertexShader}
-          fragmentShader={haloFragmentShader}
+          ref={material}
+          vertexShader={vertexShader}
+          fragmentShader={fragmentShader}
           uniforms={uniforms}
-          side={BackSide}
-          blending={AdditiveBlending}
           transparent
-          depthWrite={false}
         />
+        <mesh scale={1.6} renderOrder={-1}>
+          <icosahedronGeometry args={[1, 8]} />
+          <shaderMaterial
+            vertexShader={haloVertexShader}
+            fragmentShader={haloFragmentShader}
+            uniforms={uniforms}
+            side={BackSide}
+            blending={AdditiveBlending}
+            transparent
+            depthWrite={false}
+          />
+        </mesh>
       </mesh>
-    </mesh>
+    </>
   )
 }
 
