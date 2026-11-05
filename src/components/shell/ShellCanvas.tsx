@@ -2,9 +2,9 @@
 
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useMemo, useRef } from 'react'
-import { Color, MathUtils, type Mesh, type ShaderMaterial } from 'three'
+import { AdditiveBlending, BackSide, Color, MathUtils, type Mesh, type ShaderMaterial } from 'three'
 import { getPalette } from './palettes'
-import { fragmentShader, vertexShader } from './shaders'
+import { fragmentShader, haloFragmentShader, haloVertexShader, vertexShader } from './shaders'
 
 type Section = { name: string | undefined; side: string | undefined; isFirst: boolean }
 
@@ -71,7 +71,7 @@ function Shell({ animate }: { animate: boolean }) {
     }
 
     const { palette, side } = target.current
-    const narrow = viewport.width < 6
+    const narrow = viewport.width < 4.5
     // On phones only the home hero has room above the text for a bright shell.
     const isFirst = target.current.isFirst && (!narrow || palette === getPalette('nacre'))
     const ease = 1 - Math.exp(-delta * 2.5)
@@ -109,6 +109,18 @@ function Shell({ animate }: { animate: boolean }) {
         uniforms={uniforms}
         transparent
       />
+      <mesh scale={1.6} renderOrder={-1}>
+        <icosahedronGeometry args={[1, 8]} />
+        <shaderMaterial
+          vertexShader={haloVertexShader}
+          fragmentShader={haloFragmentShader}
+          uniforms={uniforms}
+          side={BackSide}
+          blending={AdditiveBlending}
+          transparent
+          depthWrite={false}
+        />
+      </mesh>
     </mesh>
   )
 }

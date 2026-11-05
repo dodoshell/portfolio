@@ -60,6 +60,7 @@ uniform vec2 uPointer;
 
 varying vec3 vNormal;
 varying vec3 vView;
+varying vec3 vObject;
 varying float vDisplacement;
 
 ${noise}
@@ -69,7 +70,7 @@ float displacement(vec3 p) {
   float fine = snoise(p * 1.8 - vec3(uTime * 0.14)) * 0.08;
   // The surface swells toward the pointer, like something soft being pressed.
   float pull = max(dot(normalize(p), normalize(vec3(uPointer, 0.6))), 0.0);
-  return (slow + fine) * (0.05 + uTurbulence * 0.08) + pull * pull * 0.1;
+  return (slow + fine) * (0.018 + uTurbulence * 0.028) + pull * pull * 0.04;
 }
 
 void main() {
@@ -89,36 +90,100 @@ void main() {
   vec4 world = modelViewMatrix * vec4(displaced, 1.0);
   vNormal = normalize(normalMatrix * bentNormal);
   vView = normalize(-world.xyz);
+  vObject = position;
   vDisplacement = d;
   gl_Position = projectionMatrix * world;
 }
 `
 
-// Thin-film look: the hue shifts with the viewing angle, like nacre inside a shell.
+// Nacre: thin-film colour shifts with the viewing angle and with the growth
+// layers running through the pearl. uFade dissolves the solid pearl into a thin
+// bubble, so behind text only its rim and highlights remain.
 export const fragmentShader = /* glsl */ `
 uniform vec3 uColorA;
 uniform vec3 uColorB;
 uniform vec3 uColorC;
+uniform vec2 uPointer;
 uniform float uTime;
 uniform float uFade;
 
 varying vec3 vNormal;
 varying vec3 vView;
+varying vec3 vObject;
 varying float vDisplacement;
 
+${noise}
+
+vec3 film(float phase) {
+  vec3 wave = 0.5 + 0.5 * cos(6.28318 * (vec3(phase) + vec3(0.0, 0.33, 0.67)));
+  wave *= wave;
+  return (uColorA * wave.x + uColorB * wave.y + uColorC * wave.z) / max(wave.x + wave.y + wave.z, 0.001);
+}
+
 void main() {
-  float facing = clamp(dot(normalize(vNormal), normalize(vView)), 0.0, 1.0);
-  float fresnel = pow(1.0 - facing, 2.2);
+  vec3 normal = normalize(vNormal);
+  vec3 view = normalize(vView);
+  float facing = clamp(dot(normal, view), 0.0, 1.0);
+  float fresnel = pow(1.0 - facing, 2.6);
 
-  float film = facing * 1.8 + vDisplacement * 1.5 + uTime * 0.04;
-  vec3 wave = 0.5 + 0.5 * cos(6.28318 * (vec3(film) + vec3(0.0, 0.33, 0.67)));
-  vec3 color = uColorA * wave.x + uColorB * wave.y + uColorC * wave.z;
-  color /= max(wave.x + wave.y + wave.z, 0.001);
+  // Warped noise bent into fine bands, like the layers of a real shell.
+  float drift = snoise(vObject * 1.1 + vec3(uTime * 0.03));
+  float warp = drift + snoise(vObject * 2.6 - vec3(uTime * 0.02)) * 0.35;
+  float bands = sin(warp * 26.0);
 
-  vec3 light = normalize(vec3(-0.4, 0.8, 0.6));
-  float spec = pow(max(dot(reflect(-light, normalize(vNormal)), normalize(vView)), 0.0), 40.0);
+  vec3 color = film(facing * 2.0 + warp * 0.16 + bands * 0.03 + vDisplacement * 1.5 + uTime * 0.03);
+  vec3 rim = film(facing * 2.0 + warp * 0.16 + 0.4);
 
-  color = mix(color * 0.55, color, facing) + fresnel * 0.55 + spec * 0.6;
-  gl_FragColor = vec4(color, uFade);
+  // The key light follows the pointer; a cool one stays fixed on the other side.
+  vec3 key = normalize(vec3(uPointer * 0.9, 0.9));
+  vec3 fill = normalize(vec3(-0.7, -0.5, 0.5));
+  float wrap = dot(normal, key) * 0.5 + 0.5;
+  vec3 mirror = reflect(-view, normal);
+  float sheen = pow(max(dot(mirror, key), 0.0), 10.0);
+  float spec = pow(max(dot(mirror, key), 0.0), 220.0);
+  float fillSpec = pow(max(dot(mirror, fill), 0.0), 24.0);
+
+  // Lustre: the lit side washes towards the pale body of the pearl.
+  vec3 pearl = mix(color, vec3(0.93, 0.91, 0.96), wrap * wrap * 0.32) * mix(0.2, 1.05, wrap * wrap);
+  pearl += rim * fresnel * 0.8 + vec3(sheen * 0.14 + spec * 0.7) + uColorB * fillSpec * 0.18;
+
+  float solid = smoothstep(0.32, 1.0, uFade);
+  float bubble = 0.03 + (bands * 0.5 + 0.5) * 0.025 + fresnel * 0.45 + sheen * 0.08 + spec * 0.6;
+  gl_FragColor = vec4(pearl, mix(bubble, 1.0, solid));
+}
+`
+
+// A soft light around the pearl, so its edge melts into the page. Drawn on the
+// inside of a larger sphere: strongest behind the pearl, gone at the silhouette.
+export const haloVertexShader = /* glsl */ `
+varying vec3 vNormal;
+varying vec3 vView;
+
+void main() {
+  vec4 world = modelViewMatrix * vec4(position, 1.0);
+  vNormal = normalize(normalMatrix * normal);
+  vView = normalize(-world.xyz);
+  gl_Position = projectionMatrix * world;
+}
+`
+
+export const haloFragmentShader = /* glsl */ `
+uniform vec3 uColorA;
+uniform vec3 uColorB;
+uniform vec3 uColorC;
+uniform float uFade;
+uniform float uTime;
+
+varying vec3 vNormal;
+varying vec3 vView;
+
+void main() {
+  vec3 normal = normalize(vNormal);
+  float glow = pow(abs(dot(normal, normalize(vView))), 3.5);
+  float sweep = atan(normal.y, normal.x) + uTime * 0.12;
+  vec3 swept = mix(mix(uColorA, uColorB, 0.5 + 0.5 * sin(sweep)), uColorC, 0.5 + 0.5 * sin(sweep * 2.0 + 1.0) * 0.5);
+  // The angle has no meaning at the centre, so the colours settle into their average there.
+  vec3 color = mix((uColorA + uColorB + uColorC) / 3.0, swept, smoothstep(0.25, 0.85, length(normal.xy)));
+  gl_FragColor = vec4(color, glow * mix(0.14, 0.42, smoothstep(0.32, 1.0, uFade)));
 }
 `
