@@ -43,12 +43,19 @@ const en = {
   upstream: {
     heading: 'Fixes in other people’s code',
     intro:
-      'I pick open issues in projects I don’t maintain, reproduce them, and send a fix with tests. The list below comes straight from GitHub.',
+      'I pick open issues in projects I don’t maintain, reproduce them, and send a fix with tests. The numbers and states below come straight from GitHub; open a project to read what each fix did.',
     merged: 'Merged',
     open: 'In review',
     closed: 'Closed',
     stars: 'stars',
     viewPr: 'View the pull request',
+    stats: {
+      merged: 'pull requests merged',
+      open: 'in review right now',
+      projects: 'projects contributed to',
+      stars: 'GitHub stars across those projects',
+    },
+    count: { merged: ['merged', 'merged'], open: ['in review', 'in review'] },
   },
   process: {
     heading: 'How I work on a bug',
@@ -124,12 +131,19 @@ const it: Dictionary = {
   upstream: {
     heading: 'Correzioni nel codice degli altri',
     intro:
-      'Scelgo issue aperte in progetti che non mantengo, le riproduco e mando una correzione con i test. L’elenco qui sotto arriva direttamente da GitHub.',
+      'Scelgo issue aperte in progetti che non mantengo, le riproduco e mando una correzione con i test. Numeri e stati qui sotto arrivano direttamente da GitHub; apri un progetto per leggere cosa ha sistemato ogni correzione.',
     merged: 'Accettata',
     open: 'In revisione',
     closed: 'Chiusa',
     stars: 'stelle',
     viewPr: 'Apri la pull request',
+    stats: {
+      merged: 'pull request accettate',
+      open: 'in revisione adesso',
+      projects: 'progetti a cui ho contribuito',
+      stars: 'stelle GitHub di quei progetti',
+    },
+    count: { merged: ['accettata', 'accettate'], open: ['in revisione', 'in revisione'] },
   },
   process: {
     heading: 'Come lavoro su un bug',

@@ -109,6 +109,25 @@ body {
   }
 }
 
+/* One pearl per pull request: a formed pearl once accepted, an empty ring while in review. */
+.pearl {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 9999px;
+}
+
+.pearl-merged {
+  background: radial-gradient(circle at 35% 30%, var(--color-nacre), var(--color-lilac) 55%, color-mix(in srgb, var(--color-lilac) 45%, var(--color-abyss)));
+}
+
+.pearl-open {
+  border: 1.5px solid var(--color-iris);
+}
+
+.pearl-closed {
+  background: color-mix(in srgb, var(--color-mist) 35%, transparent);
+}
+
 /* Shiki output: keep the theme's colours, drop its background. */
 .code pre {
   background: transparent !important;
