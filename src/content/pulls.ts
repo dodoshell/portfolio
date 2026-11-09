@@ -293,4 +293,22 @@ export const pullNotes: PullNote[] = [
       it: 'Una query GraphQL che ometteva un argomento con un valore di default dichiarato, o uno obbligatorio, perdeva quel filtro senza avvisare e restituiva tutti i record del tipo. Ora il default viene applicato e un argomento obbligatorio mancante dà errore.',
     },
   },
+  {
+    repo: 'doobidoo/mcp-memory-service',
+    number: 1932,
+    fallback: { title: 'fix(startup): accept the ONNX backend in the dependency check (#1930)', state: 'open', stars: 2103 },
+    summary: {
+      en: 'Every start of the lightweight ONNX install warned that PyTorch was missing, doubled the startup timeout and suggested an install script that pip users do not have. The check now accepts either embedding backend and points at the right pip command.',
+      it: 'Ogni avvio del pacchetto leggero basato su ONNX avvisava che mancava PyTorch, raddoppiava il timeout di avvio e suggeriva uno script di installazione che chi usa pip non ha. Ora il controllo accetta entrambi i backend di embedding e indica il comando pip giusto.',
+    },
+  },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8511,
+    fallback: { title: 'fix(search): warn once per research about a blocked SearXNG URL and log engine construction at DEBUG', state: 'open', stars: 9556 },
+    summary: {
+      en: 'A research run with SearXNG pointed at a blocked private URL repeated the same warning, and the engine construction lines, at every search step. The warning now appears once per research and URL, and the construction details moved to DEBUG.',
+      it: 'Una ricerca con SearXNG puntato a un URL privato bloccato ripeteva lo stesso avviso, e le righe di costruzione del motore, a ogni passo di ricerca. Ora un solo avviso per ricerca e URL, e i dettagli di costruzione sono passati a DEBUG.',
+    },
+  },
 ]
