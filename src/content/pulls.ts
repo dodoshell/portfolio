@@ -296,7 +296,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'doobidoo/mcp-memory-service',
     number: 1932,
-    fallback: { title: 'fix(startup): accept the ONNX backend in the dependency check (#1930)', state: 'open', stars: 2103 },
+    fallback: { title: 'fix(startup): accept the ONNX backend in the dependency check (#1930)', state: 'merged', stars: 2103 },
     summary: {
       en: 'Every start of the lightweight ONNX install warned that PyTorch was missing, doubled the startup timeout and suggested an install script that pip users do not have. The check now accepts either embedding backend and points at the right pip command.',
       it: 'Ogni avvio del pacchetto leggero basato su ONNX avvisava che mancava PyTorch, raddoppiava il timeout di avvio e suggeriva uno script di installazione che chi usa pip non ha. Ora il controllo accetta entrambi i backend di embedding e indica il comando pip giusto.',
