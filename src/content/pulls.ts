@@ -275,4 +275,13 @@ export const pullNotes: PullNote[] = [
       it: 'Una risorsa indicata in replaceTriggeredBy veniva scritta come "${…}", che Terraform rifiuta in quel campo, quindi la configurazione generata non passava la validazione. Ora i riferimenti sono scritti come Terraform se li aspetta.',
     },
   },
+  {
+    repo: 'floci-io/floci-az',
+    number: 649,
+    fallback: { title: 'fix(containerapps): drop an empty keyVaultUrl from a plain secret', state: 'open', stars: 896 },
+    summary: {
+      en: 'Terraform sends an empty Key Vault URL with every plain Container Apps secret, and the emulator stored it as sent, so the secret read back without its value and every plan tried to set it again. Blank Key Vault fields are now dropped, while real Key Vault references are kept.',
+      it: 'Terraform manda un URL Key Vault vuoto con ogni secret normale delle Container Apps, e l’emulatore lo salvava così, quindi il secret tornava indietro senza valore e ogni plan provava a reimpostarlo. Ora i campi Key Vault vuoti vengono tolti, mentre i riferimenti Key Vault veri restano.',
+    },
+  },
 ]
