@@ -195,18 +195,9 @@ export const pullNotes: PullNote[] = [
     },
   },
   {
-    repo: 'datamodel-code-generator/datamodel-code-generator',
-    number: 6127,
-    fallback: { title: 'Read minContains and maxContains written as integral floats as the integers they are', state: 'open', stars: 4048 },
-    summary: {
-      en: 'A schema that wrote minContains or maxContains as 2.0 instead of 2 lost those limits, so the generated model accepted arrays it should reject. Whole-number floats are now read as the integers they are.',
-      it: 'Uno schema che scriveva minContains o maxContains come 2.0 invece di 2 perdeva quei limiti, e il modello generato accettava array che avrebbe dovuto rifiutare. Ora i float interi vengono letti come numeri interi.',
-    },
-  },
-  {
     repo: 'mojohaus/flatten-maven-plugin',
     number: 562,
-    fallback: { title: 'Resolve parent and imported POMs from repositories declared in the POM chain', state: 'open', stars: 224 },
+    fallback: { title: 'Resolve parent and imported POMs from repositories declared in the POM chain', state: 'merged', stars: 224 },
     summary: {
       en: 'The plugin ignored the repositories that a parent POM or an imported BOM declares, so it failed on projects that Maven itself builds fine. Those repositories are now used to resolve the rest of the chain.',
       it: 'Il plugin ignorava i repository dichiarati da un POM padre o da un BOM importato, e falliva su progetti che Maven compila senza problemi. Ora quei repository vengono usati per risolvere il resto della catena.',
@@ -224,7 +215,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'LearningCircuit/local-deep-research',
     number: 8274,
-    fallback: { title: 'fix(security): run the added log patterns on bytes and keys in extra', state: 'open', stars: 9501 },
+    fallback: { title: 'fix(security): run the added log patterns on bytes and keys in extra', state: 'merged', stars: 9501 },
     summary: {
       en: 'A credential passed to a log call as bytes or as a dictionary key in extra was checked against fewer patterns than the message itself, so some shapes reached the logs unredacted. Bytes and keys now go through the same redaction as the message.',
       it: 'Una credenziale passata a una chiamata di log come bytes o come chiave di un dizionario in extra veniva controllata con meno pattern del messaggio stesso, e alcune forme finivano nei log in chiaro. Ora bytes e chiavi passano per la stessa redazione del messaggio.',
@@ -260,19 +251,10 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'floci-io/floci-az',
     number: 631,
-    fallback: { title: 'fix(blob): answer Append Block with Last-Modified and x-ms-request-server-encrypted', state: 'open', stars: 846 },
+    fallback: { title: 'fix(blob): answer Append Block with Last-Modified and x-ms-request-server-encrypted', state: 'merged', stars: 846 },
     summary: {
       en: 'Appending to a blob in the emulator returned a response without the Last-Modified and x-ms-request-server-encrypted headers that Azure Storage sends. They are now included, with the same time the blob stores.',
       it: 'Aggiungere dati a un blob nell’emulatore dava una risposta senza le intestazioni Last-Modified e x-ms-request-server-encrypted che Azure Storage invia. Ora ci sono, con lo stesso orario salvato nel blob.',
-    },
-  },
-  {
-    repo: 'datamodel-code-generator/datamodel-code-generator',
-    number: 6236,
-    fallback: { title: 'Resolve a $ref to a $dynamicAnchor, and to an $anchor under contains, not, if, dependentSchemas or a nested $defs', state: 'open', stars: 4050 },
-    summary: {
-      en: 'A schema that referred to a subschema by an anchor name stopped generation with an error when the name came from $dynamicAnchor, or when the anchor sat under contains, not, if, dependentSchemas or a nested $defs. Those names are now found and the reference resolves.',
-      it: 'Uno schema che si riferiva a un sottoschema con il nome di un anchor fermava la generazione con un errore quando il nome veniva da $dynamicAnchor, o quando l’anchor stava sotto contains, not, if, dependentSchemas o un $defs annidato. Ora quei nomi vengono trovati e il riferimento si risolve.',
     },
   },
 ]
