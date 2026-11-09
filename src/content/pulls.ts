@@ -242,7 +242,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'floci-io/floci-az',
     number: 630,
-    fallback: { title: 'fix(containerapps): report a managed environment’s customDomainVerificationId', state: 'open', stars: 846 },
+    fallback: { title: 'fix(containerapps): report a managed environment’s customDomainVerificationId', state: 'merged', stars: 846 },
     summary: {
       en: 'The emulator’s Container Apps environments had no customDomainVerificationId, a field Azure clients read after creating one. Each environment now reports a stable value for it.',
       it: 'Gli ambienti Container Apps dell’emulatore non avevano customDomainVerificationId, un campo che i client Azure leggono dopo averne creato uno. Ora ogni ambiente riporta un valore stabile.',
