@@ -260,7 +260,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'The-PR-Agent/pr-agent',
     number: 4810,
-    fallback: { title: 'fix(security): redact generic password and token assignments', state: 'open', stars: 15684 },
+    fallback: { title: 'fix(security): redact generic password and token assignments', state: 'merged', stars: 15684 },
     summary: {
       en: 'Before CI logs reach the model, PR-Agent hides credentials in them, but a plain DB_PASSWORD=…, password: …, secret=… or token=… went through untouched. These assignments are now redacted too.',
       it: 'Prima di passare i log della CI al modello, PR-Agent nasconde le credenziali, ma un semplice DB_PASSWORD=…, password: …, secret=… o token=… passava così com’era. Ora anche queste assegnazioni vengono oscurate.',
@@ -278,10 +278,19 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'floci-io/floci-az',
     number: 649,
-    fallback: { title: 'fix(containerapps): drop an empty keyVaultUrl from a plain secret', state: 'open', stars: 896 },
+    fallback: { title: 'fix(containerapps): drop an empty keyVaultUrl from a plain secret', state: 'merged', stars: 896 },
     summary: {
       en: 'Terraform sends an empty Key Vault URL with every plain Container Apps secret, and the emulator stored it as sent, so the secret read back without its value and every plan tried to set it again. Blank Key Vault fields are now dropped, while real Key Vault references are kept.',
       it: 'Terraform manda un URL Key Vault vuoto con ogni secret normale delle Container Apps, e l’emulatore lo salvava così, quindi il secret tornava indietro senza valore e ogni plan provava a reimpostarlo. Ora i campi Key Vault vuoti vengono tolti, mentre i riferimenti Key Vault veri restano.',
+    },
+  },
+  {
+    repo: 'ArcadeData/arcadedb',
+    number: 11466,
+    fallback: { title: 'fix(#11447): apply declared argument defaults and reject omitted non-null arguments on the plain GraphQL path', state: 'open', stars: 1248 },
+    summary: {
+      en: 'A GraphQL query that left out an argument with a declared default, or a required one, silently lost that filter and returned every record of the type. The default is now applied, and a missing required argument is an error.',
+      it: 'Una query GraphQL che ometteva un argomento con un valore di default dichiarato, o uno obbligatorio, perdeva quel filtro senza avvisare e restituiva tutti i record del tipo. Ora il default viene applicato e un argomento obbligatorio mancante dà errore.',
     },
   },
 ]
