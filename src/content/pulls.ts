@@ -257,4 +257,22 @@ export const pullNotes: PullNote[] = [
       it: 'Aggiungere dati a un blob nell’emulatore dava una risposta senza le intestazioni Last-Modified e x-ms-request-server-encrypted che Azure Storage invia. Ora ci sono, con lo stesso orario salvato nel blob.',
     },
   },
+  {
+    repo: 'The-PR-Agent/pr-agent',
+    number: 4810,
+    fallback: { title: 'fix(security): redact generic password and token assignments', state: 'open', stars: 15684 },
+    summary: {
+      en: 'Before CI logs reach the model, PR-Agent hides credentials in them, but a plain DB_PASSWORD=…, password: …, secret=… or token=… went through untouched. These assignments are now redacted too.',
+      it: 'Prima di passare i log della CI al modello, PR-Agent nasconde le credenziali, ma un semplice DB_PASSWORD=…, password: …, secret=… o token=… passava così com’era. Ora anche queste assegnazioni vengono oscurate.',
+    },
+  },
+  {
+    repo: 'open-constructs/cdk-terrain',
+    number: 592,
+    fallback: { title: 'fix(lib): render replaceTriggeredBy references without interpolation', state: 'open', stars: 281 },
+    summary: {
+      en: 'A resource listed in replaceTriggeredBy was written as "${…}", which Terraform rejects in that field, so the generated configuration failed to validate. References are now written the way Terraform expects.',
+      it: 'Una risorsa indicata in replaceTriggeredBy veniva scritta come "${…}", che Terraform rifiuta in quel campo, quindi la configurazione generata non passava la validazione. Ora i riferimenti sono scritti come Terraform se li aspetta.',
+    },
+  },
 ]
