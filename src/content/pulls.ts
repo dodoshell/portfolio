@@ -320,4 +320,13 @@ export const pullNotes: PullNote[] = [
       it: 'Seguito della #8511: il commento nel codice e il changelog ora dicono che dopo 256 URL bloccati l’avviso può ricomparire una volta per ciascuno, e nuovi test fissano quel limite, il comportamento fuori da una ricerca e il livello DEBUG della riga di costruzione.',
     },
   },
+  {
+    repo: 'pmd/pmd',
+    number: 7312,
+    fallback: { title: '[java] Fix #7310: UnusedAssignment false positive for increment in do-while condition', state: 'open', stars: 5527 },
+    summary: {
+      en: 'The UnusedAssignment rule reported the i++ in a do-while condition as never used, while the same increment in a while loop was fine. The condition of a do-while is now checked again after the body, so the increment counts as read.',
+      it: 'La regola UnusedAssignment segnalava come mai usato l’i++ nella condizione di un do-while, mentre lo stesso incremento in un while andava bene. Ora la condizione del do-while viene ricontrollata dopo il corpo, e l’incremento risulta letto.',
+    },
+  },
 ]
