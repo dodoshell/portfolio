@@ -329,4 +329,13 @@ export const pullNotes: PullNote[] = [
       it: 'La regola UnusedAssignment segnalava come mai usato l’i++ nella condizione di un do-while, mentre lo stesso incremento in un while andava bene. Ora la condizione del do-while viene ricontrollata dopo il corpo, e l’incremento risulta letto.',
     },
   },
+  {
+    repo: 'Pari030/get-ip-by-anydesk',
+    number: 4,
+    fallback: { title: 'Linux support and a few fixes', state: 'open', stars: 28 },
+    summary: {
+      en: 'The script only ran on Windows, crashed on a missing requests package and only ignored 192.168.x.x as a local address. It now runs on Linux too, installs everything it needs and skips every private range.',
+      it: 'Lo script girava solo su Windows, si bloccava per il pacchetto requests mancante e ignorava come indirizzo locale solo 192.168.x.x. Ora gira anche su Linux, installa tutto quello che serve e salta tutti gli intervalli privati.',
+    },
+  },
 ]
