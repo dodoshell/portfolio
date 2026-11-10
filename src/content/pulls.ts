@@ -311,4 +311,13 @@ export const pullNotes: PullNote[] = [
       it: 'Una ricerca con SearXNG puntato a un URL privato bloccato ripeteva lo stesso avviso, e le righe di costruzione del motore, a ogni passo di ricerca. Ora un solo avviso per ricerca e URL, e i dettagli di costruzione sono passati a DEBUG.',
     },
   },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8532,
+    fallback: { title: 'fix(search): describe what clearing the warned-URL set costs, and test it', state: 'open', stars: 9555 },
+    summary: {
+      en: 'Follow-up to #8511: the code comment and the changelog now say that after 256 blocked URLs the warning can appear once more for each of them, and new tests pin that limit, the behaviour outside a research run and the DEBUG level of the construction line.',
+      it: 'Seguito della #8511: il commento nel codice e il changelog ora dicono che dopo 256 URL bloccati l’avviso può ricomparire una volta per ciascuno, e nuovi test fissano quel limite, il comportamento fuori da una ricerca e il livello DEBUG della riga di costruzione.',
+    },
+  },
 ]
