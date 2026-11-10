@@ -179,7 +179,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'pmd/pmd',
     number: 7280,
-    fallback: { title: '[java] Fix #7279: InternalApiUsage false positive in records and enums', state: 'open', stars: 5524 },
+    fallback: { title: '[java] Fix #7279: InternalApiUsage false positive in records and enums', state: 'merged', stars: 5524 },
     summary: {
       en: 'The InternalApiUsage rule flagged @VisibleForTesting members used inside their own record or enum, because it only looked for an enclosing class. It now recognises any enclosing type.',
       it: 'La regola InternalApiUsage segnalava i membri @VisibleForTesting usati dentro il loro stesso record o enum, perché cercava solo una classe contenitore. Ora riconosce qualsiasi tipo contenitore.',
@@ -305,7 +305,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'LearningCircuit/local-deep-research',
     number: 8511,
-    fallback: { title: 'fix(search): warn once per research about a blocked SearXNG URL and log engine construction at DEBUG', state: 'open', stars: 9556 },
+    fallback: { title: 'fix(search): warn once per research about a blocked SearXNG URL and log engine construction at DEBUG', state: 'merged', stars: 9556 },
     summary: {
       en: 'A research run with SearXNG pointed at a blocked private URL repeated the same warning, and the engine construction lines, at every search step. The warning now appears once per research and URL, and the construction details moved to DEBUG.',
       it: 'Una ricerca con SearXNG puntato a un URL privato bloccato ripeteva lo stesso avviso, e le righe di costruzione del motore, a ogni passo di ricerca. Ora un solo avviso per ricerca e URL, e i dettagli di costruzione sono passati a DEBUG.',
