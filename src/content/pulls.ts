@@ -224,7 +224,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'LearningCircuit/local-deep-research',
     number: 8275,
-    fallback: { title: 'fix(security): run the added log patterns on stripped exception text', state: 'open', stars: 9501 },
+    fallback: { title: 'fix(security): run the added log patterns on stripped exception text', state: 'merged', stars: 9501 },
     summary: {
       en: 'An API key in an exception message stayed visible in the logged traceback when a control or invisible character followed it. The exception text is now checked both with and without those characters.',
       it: 'Una chiave API nel messaggio di un’eccezione restava visibile nel traceback registrato quando era seguita da un carattere di controllo o invisibile. Ora il testo dell’eccezione viene controllato sia con sia senza quei caratteri.',
