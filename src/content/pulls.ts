@@ -206,7 +206,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'haydenbleasel/ultracite',
     number: 864,
-    fallback: { title: 'Keep core first and anti-slop last when init updates oxlint extends', state: 'open', stars: 3367 },
+    fallback: { title: 'Keep core first and anti-slop last when init updates oxlint extends', state: 'merged', stars: 3367 },
     summary: {
       en: 'Re-running init after the imports had been sorted put the core preset after anti-slop in the oxlint config, so core turned back on rules anti-slop disables. init now keeps core first and anti-slop last.',
       it: 'Rilanciare init dopo l’ordinamento degli import metteva il preset core dopo anti-slop nella config di oxlint, e core riattivava le regole che anti-slop disattiva. Ora init lascia core per primo e anti-slop per ultimo.',
@@ -350,7 +350,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'ArcadeData/arcadedb',
     number: 11515,
-    fallback: { title: "fix(#11506): render CREATE EDGE's UNIDIRECTIONAL after the SET/CONTENT body, in the order the grammar accepts", state: 'open', stars: 1251 },
+    fallback: { title: "fix(#11506): render CREATE EDGE's UNIDIRECTIONAL after the SET/CONTENT body, in the order the grammar accepts", state: 'merged', stars: 1251 },
     summary: {
       en: 'A CREATE EDGE statement with UNIDIRECTIONAL and a SET or CONTENT body was printed back, for example in EXPLAIN, with its clauses in an order the SQL parser rejects. The clauses now come out in the order the grammar accepts.',
       it: 'Un CREATE EDGE con UNIDIRECTIONAL e un corpo SET o CONTENT veniva riscritto, per esempio in EXPLAIN, con le clausole in un ordine che il parser SQL rifiuta. Ora le clausole escono nell’ordine accettato dalla grammatica.',
