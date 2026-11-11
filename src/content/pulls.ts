@@ -269,7 +269,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'open-constructs/cdk-terrain',
     number: 592,
-    fallback: { title: 'fix(lib): render replaceTriggeredBy references without interpolation', state: 'open', stars: 281 },
+    fallback: { title: 'fix(lib): render replaceTriggeredBy references without interpolation', state: 'merged', stars: 284 },
     summary: {
       en: 'A resource listed in replaceTriggeredBy was written as "${…}", which Terraform rejects in that field, so the generated configuration failed to validate. References are now written the way Terraform expects.',
       it: 'Una risorsa indicata in replaceTriggeredBy veniva scritta come "${…}", che Terraform rifiuta in quel campo, quindi la configurazione generata non passava la validazione. Ora i riferimenti sono scritti come Terraform se li aspetta.',
@@ -336,6 +336,24 @@ export const pullNotes: PullNote[] = [
     summary: {
       en: 'The script only ran on Windows, crashed on a missing requests package and only ignored 192.168.x.x as a local address. It now runs on Linux too, installs everything it needs and skips every private range.',
       it: 'Lo script girava solo su Windows, si bloccava per il pacchetto requests mancante e ignorava come indirizzo locale solo 192.168.x.x. Ora gira anche su Linux, installa tutto quello che serve e salta tutti gli intervalli privati.',
+    },
+  },
+  {
+    repo: 'KaotoIO/kaoto',
+    number: 4417,
+    fallback: { title: 'fix(forms): render the properties count tag as an inline element', state: 'open', stars: 133 },
+    summary: {
+      en: 'The count badge next to a properties field was a block element placed inside a label and a paragraph, which is invalid HTML and made React warn on every render. It is now an inline element and looks the same.',
+      it: 'Il contatore accanto a un campo di proprietà era un elemento di blocco dentro un’etichetta e un paragrafo, HTML non valido che faceva comparire un avviso di React a ogni render. Ora è un elemento inline e si vede uguale.',
+    },
+  },
+  {
+    repo: 'ArcadeData/arcadedb',
+    number: 11515,
+    fallback: { title: "fix(#11506): render CREATE EDGE's UNIDIRECTIONAL after the SET/CONTENT body, in the order the grammar accepts", state: 'open', stars: 1251 },
+    summary: {
+      en: 'A CREATE EDGE statement with UNIDIRECTIONAL and a SET or CONTENT body was printed back, for example in EXPLAIN, with its clauses in an order the SQL parser rejects. The clauses now come out in the order the grammar accepts.',
+      it: 'Un CREATE EDGE con UNIDIRECTIONAL e un corpo SET o CONTENT veniva riscritto, per esempio in EXPLAIN, con le clausole in un ordine che il parser SQL rifiuta. Ora le clausole escono nell’ordine accettato dalla grammatica.',
     },
   },
 ]
