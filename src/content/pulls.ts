@@ -365,4 +365,22 @@ export const pullNotes: PullNote[] = [
       it: 'InsecureCryptoIv e HardCodedCryptoKey non vedevano una chiave o un IV fissi nel codice quando il campo era passato come this.field, mentre lo stesso campo scritto senza this veniva segnalato. Ora vengono segnalate entrambe le forme.',
     },
   },
+  {
+    repo: 'equinor/ert',
+    number: 14968,
+    fallback: { title: 'Close shared client before stopping ert server', state: 'open', stars: 167 },
+    summary: {
+      en: 'Closing ERT made its storage server wait out a 3-second timeout and log an error, because the GUI kept idle encrypted connections open. The client now closes them first, so the server stops right away.',
+      it: 'Alla chiusura di ERT il server di storage aspettava un timeout di 3 secondi e scriveva un errore nei log, perché la GUI teneva aperte connessioni cifrate inattive. Ora il client le chiude prima e il server si ferma subito.',
+    },
+  },
+  {
+    repo: 'open-constructs/cdk-terrain',
+    number: 609,
+    fallback: { title: "fix(lib): reuse a bundled asset's artifact when its hash is unchanged", state: 'open', stars: 284 },
+    summary: {
+      en: 'Every synth rebuilt every bundled asset, even when its source had not changed. An asset whose hash is unchanged now reuses the artifact it already built, and a failed build no longer leaves a half-built folder behind.',
+      it: 'Ogni synth ricostruiva tutti gli asset con bundler, anche se il sorgente non era cambiato. Ora un asset con lo stesso hash riusa l’artefatto già costruito, e una build fallita non lascia più una cartella a metà.',
+    },
+  },
 ]
