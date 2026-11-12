@@ -383,4 +383,22 @@ export const pullNotes: PullNote[] = [
       it: 'Ogni synth ricostruiva tutti gli asset con bundler, anche se il sorgente non era cambiato. Ora un asset con lo stesso hash riusa l’artefatto già costruito, e una build fallita non lascia più una cartella a metà.',
     },
   },
+  {
+    repo: 'EvoScientist/EvoScientist',
+    number: 810,
+    fallback: { title: 'fix(files): reach a folder named like the workspace and refuse deleting the workspace root', state: 'open', stars: 4960 },
+    summary: {
+      en: 'In a project folder that holds a package with the same name, the agent could not read or list that package, and deleting it would have deleted the whole workspace. The package is now reachable, and deleting the workspace root is refused.',
+      it: 'In una cartella di progetto che contiene un pacchetto con lo stesso nome, l’agente non riusciva a leggere né a elencare quel pacchetto, e cancellarlo avrebbe cancellato tutto il workspace. Ora il pacchetto è raggiungibile e la cancellazione della root del workspace viene rifiutata.',
+    },
+  },
+  {
+    repo: 'ludo-technologies/pyscn',
+    number: 889,
+    fallback: { title: 'fix(srp): skip package __init__ modules that only re-export submodules', state: 'open', stars: 1109 },
+    summary: {
+      en: 'A package __init__.py that only re-exports its submodules was reported as mixing one concern per submodule, even when the package was already split cleanly. Such files are no longer flagged, while an __init__.py with its own code still is.',
+      it: 'Un __init__.py che si limita a riesportare i suoi sottomoduli veniva segnalato come se mescolasse un compito per ogni sottomodulo, anche quando il pacchetto era già diviso bene. Ora questi file non vengono più segnalati, mentre un __init__.py con codice proprio sì.',
+    },
+  },
 ]
