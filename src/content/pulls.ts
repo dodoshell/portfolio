@@ -341,7 +341,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'KaotoIO/kaoto',
     number: 4417,
-    fallback: { title: 'fix(forms): render the properties count tag as an inline element', state: 'open', stars: 133 },
+    fallback: { title: 'fix(forms): render the properties count tag as an inline element', state: 'merged', stars: 133 },
     summary: {
       en: 'The count badge next to a properties field was a block element placed inside a label and a paragraph, which is invalid HTML and made React warn on every render. It is now an inline element and looks the same.',
       it: 'Il contatore accanto a un campo di proprietà era un elemento di blocco dentro un’etichetta e un paragrafo, HTML non valido che faceva comparire un avviso di React a ogni render. Ora è un elemento inline e si vede uguale.',
