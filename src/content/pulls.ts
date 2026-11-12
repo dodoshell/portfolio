@@ -285,15 +285,6 @@ export const pullNotes: PullNote[] = [
     },
   },
   {
-    repo: 'ArcadeData/arcadedb',
-    number: 11466,
-    fallback: { title: 'fix(#11447): apply declared argument defaults and reject omitted non-null arguments on the plain GraphQL path', state: 'open', stars: 1248 },
-    summary: {
-      en: 'A GraphQL query that left out an argument with a declared default, or a required one, silently lost that filter and returned every record of the type. The default is now applied, and a missing required argument is an error.',
-      it: 'Una query GraphQL che ometteva un argomento con un valore di default dichiarato, o uno obbligatorio, perdeva quel filtro senza avvisare e restituiva tutti i record del tipo. Ora il default viene applicato e un argomento obbligatorio mancante dà errore.',
-    },
-  },
-  {
     repo: 'doobidoo/mcp-memory-service',
     number: 1932,
     fallback: { title: 'fix(startup): accept the ONNX backend in the dependency check (#1930)', state: 'merged', stars: 2103 },
