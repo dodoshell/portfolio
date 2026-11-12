@@ -356,4 +356,22 @@ export const pullNotes: PullNote[] = [
       it: 'Un CREATE EDGE con UNIDIRECTIONAL e un corpo SET o CONTENT veniva riscritto, per esempio in EXPLAIN, con le clausole in un ordine che il parser SQL rifiuta. Ora le clausole escono nell’ordine accettato dalla grammatica.',
     },
   },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8567,
+    fallback: { title: 'fix(queue): leave a completed research alone when a late error_update arrives', state: 'open', stars: 9564 },
+    summary: {
+      en: 'Pressing Cancel just as a research finished could leave the finished report marked as suspended, with its completion time overwritten. A completed research now stays completed.',
+      it: 'Premere Annulla proprio mentre una ricerca finiva poteva lasciare il report concluso segnato come sospeso, con l’orario di completamento sovrascritto. Ora una ricerca completata resta completata.',
+    },
+  },
+  {
+    repo: 'pmd/pmd',
+    number: 7330,
+    fallback: { title: '[java] Fix #7329: Resolve this-qualified fields in InsecureCryptoIv and HardCodedCryptoKey', state: 'open', stars: 5529 },
+    summary: {
+      en: 'InsecureCryptoIv and HardCodedCryptoKey missed a hard-coded key or IV when the field was passed as this.field, though they caught the same field written without this. Both forms are now reported.',
+      it: 'InsecureCryptoIv e HardCodedCryptoKey non vedevano una chiave o un IV fissi nel codice quando il campo era passato come this.field, mentre lo stesso campo scritto senza this veniva segnalato. Ora vengono segnalate entrambe le forme.',
+    },
+  },
 ]
