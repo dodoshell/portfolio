@@ -386,7 +386,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'EvoScientist/EvoScientist',
     number: 810,
-    fallback: { title: 'fix(files): reach a folder named like the workspace and refuse deleting the workspace root', state: 'open', stars: 4960 },
+    fallback: { title: 'fix(files): reach a folder named like the workspace and refuse deleting the workspace root', state: 'merged', stars: 4964 },
     summary: {
       en: 'In a project folder that holds a package with the same name, the agent could not read or list that package, and deleting it would have deleted the whole workspace. The package is now reachable, and deleting the workspace root is refused.',
       it: 'In una cartella di progetto che contiene un pacchetto con lo stesso nome, l’agente non riusciva a leggere né a elencare quel pacchetto, e cancellarlo avrebbe cancellato tutto il workspace. Ora il pacchetto è raggiungibile e la cancellazione della root del workspace viene rifiutata.',
@@ -399,6 +399,24 @@ export const pullNotes: PullNote[] = [
     summary: {
       en: 'A package __init__.py that only re-exports its submodules was reported as mixing one concern per submodule, even when the package was already split cleanly. Such files are no longer flagged, while an __init__.py with its own code still is.',
       it: 'Un __init__.py che si limita a riesportare i suoi sottomoduli veniva segnalato come se mescolasse un compito per ogni sottomodulo, anche quando il pacchetto era già diviso bene. Ora questi file non vengono più segnalati, mentre un __init__.py con codice proprio sì.',
+    },
+  },
+  {
+    repo: 'ludo-technologies/pyscn',
+    number: 890,
+    fallback: { title: 'fix(lcom): treat a computed getattr over a class-level name table as stateless', state: 'open', stars: 1109 },
+    summary: {
+      en: 'A method that reaches its fields through a computed name, such as getattr(self, self._names[i]), was counted as a separate cohesion component, so the class looked like it should be split. Such a method is now left out of the LCOM4 graph, like one that uses a literal getattr.',
+      it: 'Un metodo che accede ai campi tramite un nome calcolato, come getattr(self, self._names[i]), veniva contato come un componente di coesione a sé, e la classe sembrava da dividere. Ora un metodo così resta fuori dal grafo LCOM4, come uno che usa un getattr con nome letterale.',
+    },
+  },
+  {
+    repo: 'open-constructs/cdk-terrain-docs',
+    number: 41,
+    fallback: { title: 'docs(concepts): explain when a bundled asset is rebuilt', state: 'open', stars: 0 },
+    summary: {
+      en: 'The assets page did not say when a bundled asset gets rebuilt, or what to do when a build depends on inputs the hash can’t see. It now explains both, with extraHash and the ways to force a rebuild.',
+      it: 'La pagina sugli asset non diceva quando un asset bundled viene ricostruito, né cosa fare quando la build dipende da input che l’hash non vede. Ora spiega entrambe le cose, con extraHash e i modi per forzare la ricostruzione.',
     },
   },
 ]
