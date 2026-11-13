@@ -419,4 +419,22 @@ export const pullNotes: PullNote[] = [
       it: 'La pagina sugli asset non diceva quando un asset bundled viene ricostruito, né cosa fare quando la build dipende da input che l’hash non vede. Ora spiega entrambe le cose, con extraHash e i modi per forzare la ricostruzione.',
     },
   },
+  {
+    repo: 'ciscoheat/sveltekit-superforms',
+    number: 707,
+    fallback: { title: 'Only read search params in the schema when validating a URL', state: 'open', stars: 2784 },
+    summary: {
+      en: 'Validating a form from the page URL read every search parameter, so SvelteKit reran the page’s load function whenever any of them changed, even ones the form doesn’t use. Now only the form’s own parameters are read.',
+      it: 'Validare un form a partire dall’URL della pagina leggeva tutti i parametri di ricerca, quindi SvelteKit rieseguiva il caricamento della pagina a ogni loro cambio, anche per parametri che il form non usa. Ora vengono letti solo quelli del form.',
+    },
+  },
+  {
+    repo: 'apache/maven',
+    number: 13988,
+    fallback: { title: 'Fix #13985: Do not reuse imported dependency management cached without locations', state: 'open', stars: 5377 },
+    summary: {
+      en: 'When a build extension imported a BOM first, Maven cached it without source locations and reused that copy for the project, so managed dependency versions lost the information on which POM they came from. Builds that track locations now get their own cached copy.',
+      it: 'Quando un’estensione della build importava per prima un BOM, Maven lo metteva in cache senza le posizioni nei sorgenti e riusava quella copia per il progetto, così le versioni delle dipendenze gestite perdevano l’informazione su da quale POM arrivassero. Ora le build che tracciano le posizioni hanno una copia in cache tutta loro.',
+    },
+  },
 ]
