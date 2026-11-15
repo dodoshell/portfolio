@@ -350,7 +350,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'LearningCircuit/local-deep-research',
     number: 8567,
-    fallback: { title: 'fix(queue): leave a completed research alone when a late error_update arrives', state: 'open', stars: 9564 },
+    fallback: { title: 'fix(queue): leave a completed research alone when a late error_update arrives', state: 'merged', stars: 9564 },
     summary: {
       en: 'Pressing Cancel just as a research finished could leave the finished report marked as suspended, with its completion time overwritten. A completed research now stays completed.',
       it: 'Premere Annulla proprio mentre una ricerca finiva poteva lasciare il report concluso segnato come sospeso, con l’orario di completamento sovrascritto. Ora una ricerca completata resta completata.',
@@ -404,7 +404,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'ludo-technologies/pyscn',
     number: 890,
-    fallback: { title: 'fix(lcom): treat a computed getattr over a class-level name table as stateless', state: 'open', stars: 1109 },
+    fallback: { title: 'fix(lcom): treat a computed getattr over a class-level name table as stateless', state: 'merged', stars: 1109 },
     summary: {
       en: 'A method that reaches its fields through a computed name, such as getattr(self, self._names[i]), was counted as a separate cohesion component, so the class looked like it should be split. Such a method is now left out of the LCOM4 graph, like one that uses a literal getattr.',
       it: 'Un metodo che accede ai campi tramite un nome calcolato, come getattr(self, self._names[i]), veniva contato come un componente di coesione a sé, e la classe sembrava da dividere. Ora un metodo così resta fuori dal grafo LCOM4, come uno che usa un getattr con nome letterale.',
