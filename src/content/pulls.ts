@@ -455,4 +455,13 @@ export const pullNotes: PullNote[] = [
       it: 'Una sottoclasse di int con confronti propri poteva superare il controllo di intervallo sui conteggi e le posizioni delle foglie di utreexo, quindi valori come -1 o 2**64 venivano accettati. Ora il valore viene letto come un int normale prima del controllo.',
     },
   },
+  {
+    repo: 'doobidoo/mcp-memory-service',
+    number: 2043,
+    fallback: { title: 'fix(dashboard): report a finished consolidation on the status island (#2006)', state: 'open', stars: 2131 },
+    summary: {
+      en: 'When a scheduled memory consolidation finished, the dashboard only refreshed its numbers, so a failed run was shown nowhere. Its status island now confirms a finished run for a few seconds and keeps a failure on screen until it is closed.',
+      it: 'Quando una consolidation schedulata delle memorie finiva, la dashboard aggiornava solo i numeri, quindi una run fallita non compariva da nessuna parte. Ora il pannello di stato conferma per qualche secondo una run finita e tiene in vista un errore finché non viene chiuso.',
+    },
+  },
 ]
