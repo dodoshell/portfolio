@@ -368,7 +368,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'equinor/ert',
     number: 14968,
-    fallback: { title: 'Close shared client before stopping ert server', state: 'open', stars: 167 },
+    fallback: { title: 'Close shared client before stopping ert server', state: 'merged', stars: 167 },
     summary: {
       en: 'Closing ERT made its storage server wait out a 3-second timeout and log an error, because the GUI kept idle encrypted connections open. The client now closes them first, so the server stops right away.',
       it: 'Alla chiusura di ERT il server di storage aspettava un timeout di 3 secondi e scriveva un errore nei log, perché la GUI teneva aperte connessioni cifrate inattive. Ora il client le chiude prima e il server si ferma subito.',
