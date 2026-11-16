@@ -437,4 +437,22 @@ export const pullNotes: PullNote[] = [
       it: 'Quando un’estensione della build importava per prima un BOM, Maven lo metteva in cache senza le posizioni nei sorgenti e riusava quella copia per il progetto, così le versioni delle dipendenze gestite perdevano l’informazione su da quale POM arrivassero. Ora le build che tracciano le posizioni hanno una copia in cache tutta loro.',
     },
   },
+  {
+    repo: 'apache/maven-mvnd',
+    number: 1944,
+    fallback: { title: 'Cancel on Ctrl+C before the client is connected to a daemon', state: 'open', stars: 3450 },
+    summary: {
+      en: 'Pressing Ctrl+C while mvnd was still starting or connecting to a daemon did nothing until the build had already been sent. The client now reads the terminal from the start, so Ctrl+C cancels right away, also inside prompts.',
+      it: 'Premere Ctrl+C mentre mvnd stava ancora avviando o collegandosi a un daemon non faceva nulla finché la build non era già partita. Ora il client legge il terminale fin dall’inizio, quindi Ctrl+C annulla subito, anche dentro i prompt.',
+    },
+  },
+  {
+    repo: 'btclib-org/btclib',
+    number: 3131,
+    fallback: { title: "Read utreexo's _int value as a plain int (closes #3129)", state: 'merged', stars: 124 },
+    summary: {
+      en: 'An int subclass with its own comparisons could pass the range check of utreexo’s leaf counts and positions, so values like -1 or 2**64 were accepted. The value is now read as a plain int before it is checked.',
+      it: 'Una sottoclasse di int con confronti propri poteva superare il controllo di intervallo sui conteggi e le posizioni delle foglie di utreexo, quindi valori come -1 o 2**64 venivano accettati. Ora il valore viene letto come un int normale prima del controllo.',
+    },
+  },
 ]
