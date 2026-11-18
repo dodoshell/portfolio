@@ -377,7 +377,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'open-constructs/cdk-terrain',
     number: 609,
-    fallback: { title: "fix(lib): reuse a bundled asset's artifact when its hash is unchanged", state: 'open', stars: 284 },
+    fallback: { title: "fix(lib): reuse a bundled asset's artifact when its hash is unchanged", state: 'merged', stars: 284 },
     summary: {
       en: 'Every synth rebuilt every bundled asset, even when its source had not changed. An asset whose hash is unchanged now reuses the artifact it already built, and a failed build no longer leaves a half-built folder behind.',
       it: 'Ogni synth ricostruiva tutti gli asset con bundler, anche se il sorgente non era cambiato. Ora un asset con lo stesso hash riusa l’artefatto già costruito, e una build fallita non lascia più una cartella a metà.',
@@ -431,7 +431,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'apache/maven',
     number: 13988,
-    fallback: { title: 'Fix #13985: Do not reuse imported dependency management cached without locations', state: 'open', stars: 5377 },
+    fallback: { title: 'Fix #13985: Do not reuse imported dependency management cached without locations', state: 'merged', stars: 5377 },
     summary: {
       en: 'When a build extension imported a BOM first, Maven cached it without source locations and reused that copy for the project, so managed dependency versions lost the information on which POM they came from. Builds that track locations now get their own cached copy.',
       it: 'Quando un’estensione della build importava per prima un BOM, Maven lo metteva in cache senza le posizioni nei sorgenti e riusava quella copia per il progetto, così le versioni delle dipendenze gestite perdevano l’informazione su da quale POM arrivassero. Ora le build che tracciano le posizioni hanno una copia in cache tutta loro.',
@@ -458,10 +458,28 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'doobidoo/mcp-memory-service',
     number: 2043,
-    fallback: { title: 'fix(dashboard): report a finished consolidation on the status island (#2006)', state: 'open', stars: 2131 },
+    fallback: { title: 'fix(dashboard): report a finished consolidation on the status island (#2006)', state: 'merged', stars: 2131 },
     summary: {
       en: 'When a scheduled memory consolidation finished, the dashboard only refreshed its numbers, so a failed run was shown nowhere. Its status island now confirms a finished run for a few seconds and keeps a failure on screen until it is closed.',
       it: 'Quando una consolidation schedulata delle memorie finiva, la dashboard aggiornava solo i numeri, quindi una run fallita non compariva da nessuna parte. Ora il pannello di stato conferma per qualche secondo una run finita e tiene in vista un errore finché non viene chiuso.',
+    },
+  },
+  {
+    repo: 'Cotal-AI/Cotal',
+    number: 7113,
+    fallback: { title: "fix(cli): say doctor auth --fix has nothing to repair in an open space's root", state: 'merged', stars: 397 },
+    summary: {
+      en: 'In the root of an open space, `cotal doctor auth --fix` refused with AUTH_REQUIRED and told the user to run the same command again in the folder they were already in. It now says there is nothing to repair, like the check without --fix.',
+      it: "Nella cartella principale di uno spazio aperto, `cotal doctor auth --fix` rifiutava con AUTH_REQUIRED e diceva di rilanciare lo stesso comando nella cartella in cui ci si trovava già. Ora dice che non c'è niente da riparare, come il controllo senza --fix.",
+    },
+  },
+  {
+    repo: 'rollerderby/scoreboard',
+    number: 1033,
+    fallback: { title: 'keep the 5 second warning after undoing a timeout', state: 'open', stars: 194 },
+    summary: {
+      en: 'After an undone timeout, the lineup never showed the 5 second warning and the jam started on the wrong timer. Undo now restores the setting the timeout had turned off.',
+      it: "Dopo aver annullato un timeout, la formazione non mostrava più l'avviso dei 5 secondi e il jam partiva col timer sbagliato. Ora Annulla ripristina l'impostazione che il timeout aveva spento.",
     },
   },
 ]
