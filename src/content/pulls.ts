@@ -413,7 +413,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'open-constructs/cdk-terrain-docs',
     number: 41,
-    fallback: { title: 'docs(concepts): explain when a bundled asset is rebuilt', state: 'open', stars: 0 },
+    fallback: { title: 'docs(concepts): explain when a bundled asset is rebuilt', state: 'merged', stars: 0 },
     summary: {
       en: 'The assets page did not say when a bundled asset gets rebuilt, or what to do when a build depends on inputs the hash can’t see. It now explains both, with extraHash and the ways to force a rebuild.',
       it: 'La pagina sugli asset non diceva quando un asset bundled viene ricostruito, né cosa fare quando la build dipende da input che l’hash non vede. Ora spiega entrambe le cose, con extraHash e i modi per forzare la ricostruzione.',
@@ -476,10 +476,28 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'rollerderby/scoreboard',
     number: 1033,
-    fallback: { title: 'keep the 5 second warning after undoing a timeout', state: 'open', stars: 194 },
+    fallback: { title: 'keep the 5 second warning after undoing a timeout', state: 'merged', stars: 194 },
     summary: {
       en: 'After an undone timeout, the lineup never showed the 5 second warning and the jam started on the wrong timer. Undo now restores the setting the timeout had turned off.',
       it: "Dopo aver annullato un timeout, la formazione non mostrava più l'avviso dei 5 secondi e il jam partiva col timer sbagliato. Ora Annulla ripristina l'impostazione che il timeout aveva spento.",
+    },
+  },
+  {
+    repo: 'LearningCircuit/local-deep-research',
+    number: 8825,
+    fallback: { title: 'fix(settings): return the default for unrecognized boolean setting strings', state: 'open', stars: 9619 },
+    summary: {
+      en: 'Setting the Wayback agent or URL quality checks to "disabled" turned them on, because any word the parser did not know counted as true. These settings now read "disabled" and "enabled" like the rest of the app, and an unknown value falls back to the default.',
+      it: "Impostare l'agente Wayback o il controllo qualità degli URL su \"disabled\" li accendeva, perché ogni parola sconosciuta valeva come vero. Ora queste impostazioni leggono \"disabled\" ed \"enabled\" come il resto dell'app, e un valore sconosciuto torna al default.",
+    },
+  },
+  {
+    repo: 'EvoScientist/EvoScientist',
+    number: 861,
+    fallback: { title: 'fix(deploy): stop the deploy server when its output pipe is gone', state: 'open', stars: 5052 },
+    summary: {
+      en: 'With its output piped to a log (`EvoSci deploy | tee`), Ctrl+C ended deploy but left its server running. The server is now stopped even when the stop message can no longer be printed.',
+      it: "Con l'output inviato a un log (`EvoSci deploy | tee`), Ctrl+C chiudeva deploy ma lasciava acceso il suo server. Ora il server viene fermato anche quando il messaggio di arresto non si può più stampare.",
     },
   },
 ]
