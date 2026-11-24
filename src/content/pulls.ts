@@ -494,7 +494,7 @@ export const pullNotes: PullNote[] = [
   {
     repo: 'EvoScientist/EvoScientist',
     number: 861,
-    fallback: { title: 'fix(deploy): stop the deploy server when its output pipe is gone', state: 'open', stars: 5052 },
+    fallback: { title: 'fix(deploy): stop the deploy server when its output pipe is gone', state: 'merged', stars: 5052 },
     summary: {
       en: 'With its output piped to a log (`EvoSci deploy | tee`), Ctrl+C ended deploy but left its server running. The server is now stopped even when the stop message can no longer be printed.',
       it: "Con l'output inviato a un log (`EvoSci deploy | tee`), Ctrl+C chiudeva deploy ma lasciava acceso il suo server. Ora il server viene fermato anche quando il messaggio di arresto non si può più stampare.",
